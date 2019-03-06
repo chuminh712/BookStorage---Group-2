@@ -1,7 +1,7 @@
-# BookStorage---Group-2
+# BookStorage
 Web Application - ASP.Net MVC - SQL Server 
 ***
-#### VUWIT15 - SIE
+#### Group 2 - VUWIT15 - SIE
 * Chu Ngọc Minh - 20168337
 * Nguyễn Đình Tiến - 20168533
 * Nguyễn Hữu Khải - 20168712
