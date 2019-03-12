@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="../Public/CSS/style.css">
+    <link rel="icon" href="../Public/Images/logo.png">
+    <title>Book Storage</title>
+</head>
+<body class="f-roboto">
+    <!--------------------- START SIDEBAR (All pages) -------------------->
+    <div id="sidebar" class="f-roboto">
+        <div id="menu-header" class="f-overpass">
+            <p class="administrator" onclick="direct('/')">Administrator</p>
+            <img class="administrator" onclick="direct('/')" src="../Public/Images/logo-white.png" alt="icon-white">
+        </div>
+        <div id="avatar">
+            <img id="avatar-sidebar" src="../Public/Images/admin.png" alt="admin-avatar">
+            <div class="admin-info">
+                <div class="admin-name">Quản trị viên</div>
+                <div class="admin-status">
+                    <img src="../Public/Images/online.png" alt="online">
+                    Online
+                </div>
+            </div>
+        </div>
+        <div id="search-sidebar">
+            <input type="text" placeholder="Tìm kiếm">
+            <i class="fas fa-search"></i>
+        </div>
+        <div id="sidebar-title">QUẢN LÝ</div>
+        <div id="homepage">
+            <a href="">
+                <i class="fas fa-home"></i>
+                <span class="menu-item">Trang chủ</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+        <div id="supplier">
+            <a href="">
+                <i class="fas fa-industry"></i>
+                <span class="menu-item">Nhà cung cấp</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+        <div id="distributor">
+            <a href="">
+                <i class="fas fa-shipping-fast"></i>
+                <span class="menu-item">Nhà phân phối</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+        <div id="import-form">
+            <a href="">
+                <i class="fas fa-download"></i>
+                <span class="menu-item">Phiếu nhập</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+        <div id="export-form">
+            <a href="">
+                <i class="fas fa-upload"></i>
+                <span class="menu-item">Phiếu xuất</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+        <div id="book">
+            <a href="">
+                <i class="fas fa-book"></i>
+                <span class="menu-item">Đầu sách</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+        <div id="book-category">
+            <a href="">
+                <i class="fas fa-clipboard-list"></i>
+                <span class="menu-item">Danh mục sách</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+        <div id="revenue">
+            <a href="">
+                <i class="fas fa-chart-bar"></i>
+                <span class="menu-item">Doanh thu</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+        <div id="inventory">
+            <a href="">
+                <i class="fas fa-warehouse"></i>
+                <span class="menu-item">Tồn kho</span>
+            </a>
+            <i class="menu-item fas fa-angle-left"></i>
+        </div>
+    </div>
+    <!--------------------- END SIDEBAR (All pages) ---------------------->
+
+    <div id="content">
+        <!--------------------- START Header (All pages) --------------------->
+        <header>
+            <div class="menu-icon" onclick="menuDisplay()"><i class="fas fa-bars"></i></div>
+            <div class="header-log">
+                <div class="admin-info">
+                    <img src="../Public/Images/admin.png" alt="admin-avatar">
+                    <div class="admin-name">Quản trị viên</div>
+                </div>
+                <div class="logout"><a href="">
+                    Đăng xuất
+                    <i class="fas fa-sign-out-alt"></i>
+                </a></div>
+            </div>
+        </header>
+        <!--------------------- END Header (All pages) ----------------------->
+    
+        <!--------------------- START CONTENT (Each page) -------------------->
+        <div id="main-content">
+            <div id="book-content">
+                <h1>Quản lý danh mục sách</h1>
+                <hr>
+                <div class="content-container">
+                    <div class="content-title">Tra cứu danh mục sách</div>
+                    <div class="content-table">
+                        <div class="interactive">
+                            <div class="search-content">
+                                <input type="text" placeholder="Tìm kiếm">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <button class="create-new-button">
+                                <i class="fas fa-plus-circle"></i>
+                                Thêm mới
+                            </button>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <!-- Start Title Row -->
+                                <tr class="table-title-row">
+                                    <th>Thể loại</th>
+                                    <th>Số lượng</th>
+                                    <th>Mã sách</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                                <!-- End Title Row -->
+                                <!-- Start Content Row -->
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>123, 45</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>123, 45</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>12, 345</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>1234, 5</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>123, 45</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>123, 45</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>12, 345</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>123, 45</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>12, 345</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>1, 2345</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>123, 45</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-content-row">
+                                    <td>Phiêu lưu</td>
+                                    <td>12</td>
+                                    <td>123, 45</td>
+                                    <td>Hết</td>
+                                    <td>
+                                        <a href="">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a href="">
+                                            <i class="fas fa-trash-alt"></i> 
+                                            Xoá
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- End Content Row -->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--------------------- END CONTENT (Each page) ---------------------->
+    </div>
+    <script src="../Public/JS/index.js"></script>
+    <script src="../Public/JS/testLayout.js"></script>
+</body>
+</html>
