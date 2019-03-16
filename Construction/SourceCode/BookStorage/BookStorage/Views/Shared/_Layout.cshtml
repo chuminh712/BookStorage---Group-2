@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="~/Assets/CSS/style.css">
+    <link rel="icon" href="~/Assets/Images/logo.png">
+    <title>Book Storage</title>
+</head>
+<body class="f-roboto">
+    <!--------------------- START SIDEBAR (All pages) -------------------->
+    @RenderPage("_Sidebar.cshtml")
+    <!--------------------- END SIDEBAR (All pages) ---------------------->
+    <div id="content">
+        <!--------------------- START Header (All pages) --------------------->
+        @RenderPage("_Header.cshtml")
+        <!--------------------- END Header (All pages) ----------------------->
+        <!--------------------- START CONTENT (Each page) -------------------->
+        <div id="main-content">
+            <div id="book-content">
+                <h1>@RenderSection("title", required: false)</h1>
+                <hr>
+                @RenderBody()
+            </div>
+        </div>
+        <!--------------------- END CONTENT (Each page) ---------------------->
+    </div>
+    <script src="~/Assets/JS/index.js"></script>
+    <script src="~/Assets/JS/testLayout.js"></script>
+</body>
+</html>
