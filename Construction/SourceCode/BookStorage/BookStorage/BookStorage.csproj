@@ -197,7 +197,6 @@
     <Content Include="Assets\Images\test-image.jpg" />
     <Content Include="Assets\JS\index.js" />
     <Content Include="Assets\JS\testLayout.js" />
-    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
