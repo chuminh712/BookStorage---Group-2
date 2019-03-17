@@ -16,36 +16,50 @@
         <?xml version="1.0" encoding="utf-8"?>
         <svg class="loader" xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" x="0" y="0" viewBox="0 0 200 200" xml:space="preserve"><path class="loaderreverse" d="M200 100c0-30.3-13.5-57.5-34.8-75.8 -4.8-4.1-12.2-3-15.8 2.3v0c-3 4.5-2.4 10.7 1.8 14.2 16.6 14.4 27.1 35.6 27.1 59.3s-10.5 44.9-27.1 59.3c-4.1 3.6-4.8 9.7-1.8 14.2v0c3.6 5.3 11 6.4 15.8 2.3C186.5 157.5 200 130.3 200 100z"/><path d="M156.7 100c0-14.9-5.8-28.5-15.2-38.6 -4.6-4.9-12.6-4.1-16.3 1.4l-0.4 0.6c-2.8 4.1-2.2 9.5 1.2 13.2 5.7 6.2 9.1 14.4 9.1 23.5 0 9-3.4 17.3-9.1 23.5 -3.3 3.7-3.9 9-1.2 13.2l0.4 0.6c3.7 5.6 11.7 6.3 16.3 1.4C150.9 128.5 156.7 114.9 156.7 100z"/></svg>
     </div>
-    <!--------------------- END LOADING (All pages) -------------------->
-        
+    <!--------------------- END LOADING (All pages) -------------------->    
+
     <div id="layer"></div>
-    <div id="home-login">
+    <div id="home-login" class="create-new-form">
         <div class="container">
-            <img class="form-banner" src="../Public/Images/banner-login-form.jpg" alt="">
-            <div class="form-container">
-                <div class="form-heading">
-                    <h2>Hệ thống quản lý kho sách</h2>
-                    <h2 class="f-overpass">Book Storage</h2>
+            <div class="create-new-title">Tạo mới sản phẩm</div>
+            <div class="create-new-add">
+                <div>
+                    <p>Mã</p>
+                    <input type="text" placeholder="Mã">
                 </div>
-                <div class="form-main">
-                    <h2>Đăng nhập</h2>
-                    <form action="" method="POST">
-                        <input type="text" name="username" placeholder="Tên tài khoản" required>
-                        <input id="password-input" type="password" name="password" placeholder="Mật khẩu" required>
-                        <div class="password-display">
-                            <input type="checkbox" onclick="showPassword()">
-                            <p>Hiển thị mật khẩu</p>
-                        </div>
-                        <div class="login-message">
-                            <p></p>
-                            <p></p>
-                        </div>
-                        <button type="submit" name="submit">Đăng nhập</button>
-                    </form>
+                <div>
+                    <p>Nhà cung cấp</p>
+                    <input type="text" placeholder="Nhà cung cấp">
                 </div>
+                <div>
+                    <p>Số lượng</p>
+                    <input type="number" placeholder="Số lượng">
+                </div>
+                <div><button><i class="fas fa-plus"></i>Thêm</button></div>
+            </div>
+            <div class="create-new-table">
+                <table>
+                    <tr class="table-title-row">
+                        <th>abcxyz</th>
+                        <th>abcxyz</th>
+                        <th>abcxyz</th>
+                        <th>abcxyz</th>
+                    </tr>
+                    <tr class="table-content-row">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="create-new-confirm">
+                <button><i class="fas fa-plus-circle"></i>Thêm mới</button>
+                <button><i class="fas fa-ban"></i>Trở về</button>
             </div>
         </div>
     </div>
+    
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"
             integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
             crossorigin="anonymous">
