@@ -990,11 +990,9 @@ td a:hover {
 }
 
 /* Create New Form */
-.create-new-form .container {
-    display: block !important;
-    padding-top: 50px !important;
-    position: relative !important;
-    min-height: 680px !important;
+#create-new-form {
+    display: block;
+    width: 100%;
 }
 
 .create-new-title {
@@ -1069,7 +1067,7 @@ td a:hover {
 
 .create-new-table {
     width: 70% !important;
-    height: 250px;
+    height: 30vh;
     border: #e98074 solid 2px;
     overflow: auto;
     margin: 0 auto;
@@ -1077,10 +1075,9 @@ td a:hover {
 
 .create-new-confirm {
     width: 100%;
-    position: absolute;
-    bottom: 50px;
     display: flex;
-    justify-content: center
+    justify-content: center;
+    padding-top: 5vh;
 }
 
 .create-new-confirm button {
@@ -1104,6 +1101,41 @@ td a:hover {
 
 .create-new-confirm button i {
     margin-right: 5px;
+}
+
+/* Create New Book */
+.create-new-book {
+    display: flex !important;
+}
+
+.create-new-book #import-form-info {
+    width: 30%;
+    padding: 30px;
+}
+
+.create-new-book #book-info {
+    width: 70%;
+}
+
+.create-new-confirm button {
+    width: 17%;
+}
+
+#import-form-info p {
+    font-size: 1.05vw;
+    padding-top: 10px;
+}
+
+#import-form-info input {
+    margin-top: 10px;
+    width: 75%;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    display: inline-block;
+    border: #e98074 solid 2px;
+    background: transparent;
 }
 
 /* Loader */
