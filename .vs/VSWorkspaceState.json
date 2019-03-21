@@ -3,8 +3,12 @@
     "",
     "\\Construction",
     "\\Construction\\SourceCode",
-    "\\Construction\\SourceCode\\BookStorage"
+    "\\Construction\\SourceCode\\BookStorage",
+    "\\Construction\\SourceCode\\BookStorage\\BookStorage",
+    "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Controllers",
+    "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Views",
+    "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Views\\GoodsReceipt"
   ],
-  "SelectedNode": "\\Construction\\SourceCode\\BookStorage\\BookStorage.sln",
+  "SelectedNode": "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Views\\GoodsReceipt\\Test.cshtml",
   "PreviewInSolutionExplorer": false
 }

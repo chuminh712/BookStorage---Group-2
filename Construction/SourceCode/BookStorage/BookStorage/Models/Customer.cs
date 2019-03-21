@@ -9,12 +9,6 @@ namespace BookStorage.Models
     [Table("Customer")]
     public partial class Customer
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
-        {
-            GoodsIssues = new HashSet<GoodsIssue>();
-        }
-
         public int ID { get; set; }
 
         [StringLength(500)]
@@ -33,8 +27,5 @@ namespace BookStorage.Models
         public DateTime? ContractedDate { get; set; }
 
         public bool Status { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GoodsIssue> GoodsIssues { get; set; }
     }
 }

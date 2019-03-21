@@ -20,9 +20,5 @@ namespace BookStorage.Models
         public int? RealQuantity { get; set; }
 
         public decimal? TotalPrice { get; set; }
-
-        public virtual Book Book { get; set; }
-
-        public virtual GoodsIssue GoodsIssue { get; set; }
     }
 }
