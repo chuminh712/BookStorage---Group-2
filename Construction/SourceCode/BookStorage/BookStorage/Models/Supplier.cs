@@ -1,5 +1,6 @@
 namespace BookStorage.Models
 {
+    using PagedList;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

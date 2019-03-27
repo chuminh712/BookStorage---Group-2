@@ -6,9 +6,11 @@
     "\\Construction\\SourceCode\\BookStorage",
     "\\Construction\\SourceCode\\BookStorage\\BookStorage",
     "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Controllers",
+    "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Models",
     "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Views",
+    "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Views\\Customer",
     "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Views\\GoodsReceipt"
   ],
-  "SelectedNode": "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Views\\GoodsReceipt\\Test.cshtml",
+  "SelectedNode": "\\Construction\\SourceCode\\BookStorage\\BookStorage\\Controllers\\GoodsReceiptInfoController.cs",
   "PreviewInSolutionExplorer": false
 }
