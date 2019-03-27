@@ -5,6 +5,7 @@ namespace BookStorage.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("Book")]
     public partial class Book
@@ -21,12 +22,18 @@ namespace BookStorage.Models
             return db.Books.Find(id);
         }
 
+        public Book GetByCode(string code)
+        {
+            return db.Books.Where(x => x.Code == code).FirstOrDefault();
+        }
+
         public int ID { get; set; }
 
         [StringLength(500)]
         public string Name { get; set; }
 
         public int? UnitID { get; set; }
+        public virtual Unit Unit { get; set; }
 
         [StringLength(500)]
         public string Author { get; set; }
