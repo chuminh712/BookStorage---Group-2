@@ -21,7 +21,7 @@
                     <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
                     <i class="fas fa-search"></i>
                 </div>
-                <button class="create-new-button" onclick="location.href='Create'" type="button">
+                <button class="create-new-button" onclick="location.href='/GoodsReceipt/Create'" type="button">
                     <i class="fas fa-plus-circle"></i>
                     Thêm mới
                 </button>
@@ -56,13 +56,13 @@
                             <td>@item.TotalPrice</td>
                             <td>
                                 @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
-                                @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                                @Ajax.ActionLink(" Xóa", "Delete", new { id = item.ID }, new AjaxOptions
                                    {
                                        Confirm = "Bạn có muốn xóa bản ghi này?",
                                        OnComplete = "$('#row_" + @item.ID + "').remove()",
                                        HttpMethod = "Delete"
                                    }, new { @class = "fas fa-trash-alt" })
-                            </td>
+                                @Html.ActionLink(" Chi tiết", "Detail", new { id = item.ID }, new { @class = "fas fa-info-circle" })
                         </tr>
                     }
                 }
