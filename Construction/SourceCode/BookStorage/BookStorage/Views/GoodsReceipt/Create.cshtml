@@ -65,10 +65,11 @@
         </div>
         <div id="book-info">
             <div class="create-new-add">
+                @Html.Hidden("bookID")
                 <div>
-                    <p>@Html.Label("bookID", "Mã sách")</p>
-                    @Html.Editor("bookID", new { htmlAttributes = new { placeholder = "Mã sách" } })
-                    @Html.ValidationMessage("bookID", "", new { @class = "text-danger" })
+                    <p>@Html.Label("bookCode", "Mã sách")</p>
+                    @Html.Editor("bookCode", new { htmlAttributes = new { placeholder = "Mã sách" } })
+                    @Html.ValidationMessage("bookCode", "", new { @class = "text-danger" })
                 </div>
 
                 <div>
@@ -110,28 +111,13 @@
                         </tr>
                     </thead>
                     <tbody id="goodsReceiptInfoTable">
-                        @if (Model != null && Model.GoodsReceiptInfo != null)
-                        {
-                            var sl = 0;
-                            foreach (var item in Model.GoodsReceiptInfo)
-                            {
-                                <tr class="table-content-row">
-                                    <td>@(++sl)</td>
-                                    <td>@item.BookID</td>
-                                    <td>@item.ReceiptQuantity</td>
-                                    <td>@item.RealQuantity</td>
-                                    <td>@item.Book.Price</td>
-                                    <td>@item.BookTotalPrice</td>
-                                </tr>
-                            }
-                        }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     <div class="create-new-confirm">
-        <button value="Create" type="submit"><i class="fas fa-plus-circle"></i>Tạo mới</button>
+        <button type="submit"><i class="fas fa-plus-circle"></i>Tạo mới</button>
         <button onclick="history.back(-1)" type="button"><i class="fas fa-ban"></i>Trở về</button>
     </div>
 }
