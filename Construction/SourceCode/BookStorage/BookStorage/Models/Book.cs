@@ -5,9 +5,6 @@ namespace BookStorage.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using PagedList;
-    using System.Linq;
-    using System.Web.Mvc;
 
     [Table("Book")]
     public partial class Book
@@ -24,18 +21,12 @@ namespace BookStorage.Models
             return db.Books.Find(id);
         }
 
-        public Book GetByCode(string code)
-        {
-            return db.Books.Where(x => x.Code == code).FirstOrDefault();
-        }
-
-        public int BookID { get; set; }
+        public int ID { get; set; }
 
         [StringLength(500)]
         public string Name { get; set; }
 
         public int? UnitID { get; set; }
-        public virtual Unit Unit { get; set; }
 
         [StringLength(500)]
         public string Author { get; set; }
@@ -59,64 +50,5 @@ namespace BookStorage.Models
         public int? Quantity { get; set; }
 
         public bool Status { get; set; }
-
-
-        public int Insert(Book entity)
-        {
-            db.Books.Add(entity);
-            db.SaveChanges();
-            return entity.BookID;
-        }
-
-        public bool Update(Book entity)
-        {
-            try
-            {
-                var book = db.Books.Find(entity.BookID);
-                book.Name = entity.Name;
-                book.BookID = entity.BookID;
-                book.UnitID = entity.UnitID;
-                book.Author = entity.Author;
-                book.BookCategoryID = entity.BookCategoryID;
-                book.Code = entity.Code;
-                book.Image = entity.Image;
-                book.Price = entity.Price;
-                book.Publisher = entity.Publisher;
-                book.CreatedDate = entity.CreatedDate;
-                book.Quantity = entity.Quantity;
-                book.Status = entity.Status;
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public IEnumerable<Book> ListAllPage(string searchString, int page, int pageSize)
-        {
-            IQueryable<Book> model = db.Books;
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                model = model.Where(x => x.Code.Contains(searchString) || x.Name.Contains(searchString) || x.Author.Contains(searchString));
-            }
-            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
-        }
-
-        public bool Delete(int id)
-        {
-            try
-            {
-                var book = db.Books.Find(id);
-                db.Books.Remove(book);
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
     }
 }
