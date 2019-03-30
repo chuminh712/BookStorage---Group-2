@@ -1,23 +1,21 @@
-﻿@model BookStorage.Models.GoodsReceipt
-
-@{
+﻿@model BookStorage.Models.GoodsIssue
     /**/
 
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Edit", "GoodsReceipt", FormMethod.Post))
+@using (Html.BeginForm("Edit", "GoodsIssue", FormMethod.Post))
 {
     <div id="create-new-form">
-        <div class="create-new-title">Chỉnh sửa phiếu nhập</div>
+        <div class="create-new-title">Chỉnh sửa hóa đơn</div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="create-new-add">
             @Html.HiddenFor(model => model.ID)
             <div>
-                <p>@Html.LabelFor(model => model.DelivererName)</p>
-                @Html.EditorFor(model => model.DelivererName, new { htmlAttributes = new { placeholder = "Tên Người giao" } })
-                @Html.ValidationMessageFor(model => model.DelivererName, "", new { @class = "text-danger" })
+                <p>@Html.LabelFor(model => model.ReciverName)</p>
+                @Html.EditorFor(model => model.ReciverName, new { htmlAttributes = new { placeholder = "Tên Người nhận" } })
+                @Html.ValidationMessageFor(model => model.ReciverName, "", new { @class = "text-danger" })
             </div>
 
             <div>
@@ -27,9 +25,9 @@
             </div>
 
             <div>
-                <p>@Html.LabelFor(model => model.SupplierID)</p>
-                @Html.DropDownListFor(model => model.SupplierID, null, "Lựa chọn")
-                @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger" })
+                <p>@Html.LabelFor(model => model.CustomerID)</p>
+                @Html.DropDownListFor(model => model.CustomerID, null, "Lựa chọn")
+                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
             </div>
 
             <div>
@@ -51,9 +49,9 @@
             </div>
 
             <div>
-                <p>@Html.LabelFor(model => model.TotalPrice)</p>
-                @Html.EditorFor(model => model.TotalPrice, new { htmlAttributes = new { id = "receiptTotalPrice", placeholder = "Tổng số tiền" } })
-                @Html.ValidationMessageFor(model => model.TotalPrice, "", new { @class = "text-danger" })
+                <p>@Html.LabelFor(model => model.OutputReason)</p>
+                @Html.EditorFor(model => model.OutputReason, new { htmlAttributes = new { id = "receiptTotalPrice", placeholder = "Tổng số tiền" } })
+                @Html.ValidationMessageFor(model => model.OutputReason, "", new { @class = "text-danger" })
             </div>
 
             <div>
