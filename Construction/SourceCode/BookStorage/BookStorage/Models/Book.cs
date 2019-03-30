@@ -6,7 +6,13 @@ namespace BookStorage.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 <<<<<<< HEAD
+<<<<<<< HEAD
     using System.Linq;
+=======
+    using PagedList;
+    using System.Linq;
+    using System.Web.Mvc;
+>>>>>>> parent of 0ee9d60... Merge pull request #70 from chuminh712/CRUD-Goods-Issue
 =======
     using PagedList;
     using System.Linq;
@@ -34,7 +40,11 @@ namespace BookStorage.Models
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         public int ID { get; set; }
+=======
+        public int BookID { get; set; }
+>>>>>>> parent of 0ee9d60... Merge pull request #70 from chuminh712/CRUD-Goods-Issue
 =======
         public int BookID { get; set; }
 >>>>>>> parent of 0ee9d60... Merge pull request #70 from chuminh712/CRUD-Goods-Issue
