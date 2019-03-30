@@ -63,9 +63,7 @@
             try
             {
                 var goodsReceipt = db.GoodsReceipts.Find(id);
-                var goodsReceiptInfoes = db.GoodsReceiptInfoes.Where(x => x.GoodsReceiptID == id);
                 db.GoodsReceipts.Remove(goodsReceipt);
-                db.GoodsReceiptInfoes.RemoveRange(goodsReceiptInfoes);
                 db.SaveChanges();
                 return true;
             }

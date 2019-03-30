@@ -21,6 +21,8 @@ namespace BookStorage.Controllers
             return View();
         }
 
+
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Create(GoodsReceipt goodsReceipt)
@@ -72,13 +74,6 @@ namespace BookStorage.Controllers
             return View("Index");
         }
 
-        public ActionResult Detail(int id)
-        {
-            var dao = new GoodsReceipt();
-            var goodsReceipt = dao.GetByID(id);
-            return View(goodsReceipt);
-        }
-
         [HttpDelete]
         public ActionResult Delete(int id)
         {
@@ -92,18 +87,11 @@ namespace BookStorage.Controllers
             ViewBag.SupplierID = new SelectList(dao.ListAll(), "ID", "Name", supplierID);
         }
 
-        public JsonResult GetBookPrice(string code)
+        public JsonResult GetBookPrice(int id)
         {
             var dao = new Book();
-            var bookPrice = dao.GetByCode(code).Price;
+            var bookPrice = dao.GetByID(id).Price;
             return Json(bookPrice);
-        }
-
-        public JsonResult GetBookID(string code)
-        {
-            var dao = new Book();
-            var bookID = dao.GetByCode(code).ID;
-            return Json(bookID);
         }
     }
 }
