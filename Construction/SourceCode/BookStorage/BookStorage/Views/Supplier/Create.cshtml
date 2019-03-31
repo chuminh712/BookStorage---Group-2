@@ -1,0 +1,56 @@
+﻿@model BookStorage.Models.Supplier
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Supplier", FormMethod.Post))
+{
+    <div class="create-new-title">Thêm mới nhà cung cấp</div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div id="create-new-form">
+        <div class="create-new-add">
+            <div>
+                <p>@Html.LabelFor(model => model.Name)</p>
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Nhà cung cấp" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Address)</p>
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { placeholder = "Địa chỉ" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Phone)</p>
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { placeholder = "Số điện thoại" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Email)</p>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.ContractedDate)</p>
+                @Html.EditorFor(model => model.ContractedDate, new { htmlAttributes = new { placeholder = "Ngày hợp tác" } })
+                @Html.ValidationMessageFor(model => model.ContractedDate, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Status)</p>
+                @Html.CheckBoxFor(model => model.Status)
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="create-new-confirm">
+        <button type="submit"><i class="fas fa-plus-circle"></i>Tạo mới</button>
+        <button onclick="history.back(-1)" type="button"><i class="fas fa-ban"></i>Trở về</button>
+    </div>
+}
+
