@@ -1,0 +1,42 @@
+﻿@model  BookStorage.ViewModels.LoginModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="~/Assets/CSS/style.css">
+    <link rel="icon" href="~/Assets/Images/logo.png">
+    <title>Book Storage</title>
+</head>
+<body>
+    <div id="layer"></div>
+    <div id="home-login" class="f-roboto">
+        <div class="container">
+            <img class="form-banner" src="~/Assets/Images/banner-login-form.jpg" alt="">
+            <div class="form-container">
+                <div class="form-heading">
+                    <h2>Hệ thống quản lý kho sách</h2>
+                    <h2 class="f-overpass">Book Storage</h2>
+                </div>
+                <div class="form-main">
+                    <h2>Đăng nhập</h2>
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                    {
+                        @Html.TextBoxFor(model => model.Username, new { @placeholder = "Tên tài khoản", @autofocus = "autofocus" })
+                        @Html.PasswordFor(model => model.Password, new { @id = "password-input", @placeholder = "Mật khẩu" })
+                        <div class="password-display">
+                            <input type="checkbox" onclick="showPassword()">
+                            <p>Hiển thị mật khẩu</p>
+                        </div>
+                        <button type="submit" name="submit">Đăng nhập</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Assets/JS/index.js"></script>
+</body>
+</html>
