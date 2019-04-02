@@ -1,5 +1,8 @@
-$(window).load(function(){
+$(window).load(function () {
     $('.loader-container').fadeOut('slow');
+
+    $('#AlertBox').removeClass('hide');
+    $('#AlertBox').delay(1000).slideUp(500);
 });
 
 function showPassword() {
@@ -42,7 +45,7 @@ if (document.getElementsByClassName('administrator')) {
 function menuDisplay() {
     if (sidebar.style.width != '53px') {
         sidebar.style.width = '53px';
-        content.style.width = `${ window.innerWidth - 53 }px`;
+        content.style.width = `${window.innerWidth - 53}px`;
         adminInfo.style.display = 'none';
         avatarSidebar.style.width = '30px';
         avatarSidebar.style.height = '30px';
@@ -51,7 +54,7 @@ function menuDisplay() {
         for (i = 0; i < menuItems.length; i++) {
             menuItems[i].style.display = 'none';
         }
-        setTimeout(function() {
+        setTimeout(function () {
             administrator[0].style.display = 'none';
             administrator[1].style.display = 'block';
         }, 200);
@@ -60,7 +63,7 @@ function menuDisplay() {
         content.style.width = '85%';
         avatarSidebar.style.width = '50px';
         avatarSidebar.style.height = '50px';
-        setTimeout(function(){
+        setTimeout(function () {
             administrator[1].style.display = 'none';
             administrator[0].style.display = 'block';
             adminInfo.style.display = 'block';

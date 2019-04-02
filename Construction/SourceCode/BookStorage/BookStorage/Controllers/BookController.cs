@@ -21,7 +21,7 @@ namespace BookStorage.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            SetViewBag();
+            //SetViewBag();
             return View();
         }
 
@@ -42,7 +42,7 @@ namespace BookStorage.Controllers
                     ModelState.AddModelError("", "Thêm sách không thành công");
                 }
             }
-            SetViewBag();
+            //SetViewBag();
             return View("Index");
         }
 
@@ -51,7 +51,7 @@ namespace BookStorage.Controllers
         {
             var dao = new Book();
             var book = dao.GetByID(id);
-            SetViewBag(book.BookID);
+            //SetViewBag(book.ID);
             return View(book);
         }
 
@@ -72,7 +72,7 @@ namespace BookStorage.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            SetViewBag(book.BookID);
+            //SetViewBag(book.ID);
             return View("Index");
         }
 
