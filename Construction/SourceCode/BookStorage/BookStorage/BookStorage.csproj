@@ -166,6 +166,8 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\GoodsReceiptController.cs" />
     <Compile Include="Controllers\GoodsReceiptInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -275,9 +277,13 @@
     <Content Include="Views\GoodsReceipt\Detail.cshtml" />
     <Content Include="Views\GoodsReceiptInfo\Create.cshtml" />
     <Content Include="Views\GoodsReceiptInfo\Edit.cshtml" />
+    <Content Include="Views\Book\Create.cshtml" />
+    <Content Include="Views\Book\Edit.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

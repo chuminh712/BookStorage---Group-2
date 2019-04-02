@@ -50,7 +50,14 @@
                             <td>@item.Code</td>
                             <td>@item.DelivererName</td>
                             <td>@item.CreatedDate</td>
-                            <td>@item.Supplier.Name</td>
+                            @if (item.Supplier != null)
+                            {
+                                <td>@item.Supplier.Name</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
                             <td>@item.Debit</td>
                             <td>@item.Credit</td>
                             <td>@item.TotalPrice</td>
