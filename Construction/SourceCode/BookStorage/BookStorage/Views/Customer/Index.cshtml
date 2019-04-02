@@ -1,0 +1,72 @@
+﻿@model PagedList.IPagedList<BookStorage.Models.Customer>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    Danh sách nhà phân phối
+    <hr />
+}
+
+<div class="content-container">
+    <div class="content-title">Tra cứu thông tin nhà phân phối</div>
+    <div class="content-table">
+        @using (Html.BeginForm("Index", "Customer", FormMethod.Get))
+        {
+            <div class="interactive">
+                <div class="search-content">
+                    <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="create-new-button" onclick="location.href='/Customer/Create'" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    Thêm mới
+                </button>
+            </div>
+        }
+        <div class="table-container">
+            <table>
+                <!-- Start Title Row -->
+                <tr class="table-title-row">
+                    <th>Nhà phân phối</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Ngày hợp tác</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+                <!-- End Title Row -->
+                <!-- Start Content Row -->
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr class="table-content-row" id="row_@item.ID">
+                            <td>@item.Name</td>
+                            <td>@item.Address</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Email</td>
+                            <td>@item.ContractedDate</td>
+                            <td>@item.Status</td>
+                            <td>
+                                @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
+                                @Ajax.ActionLink(" Xóa", "Delete", new { id = item.ID }, new AjaxOptions
+                                   {
+                                       Confirm = "Bạn có muốn xóa bản ghi này?",
+                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                       HttpMethod = "Delete"
+                                   }, new { @class = "fas fa-trash-alt" })
+                        </tr>
+                    }
+                }
+                <!-- End Content Row -->
+            </table>
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString }))
+    </div>
+</div>
+
