@@ -1,6 +1,7 @@
 * {
     margin: 0;
     scroll-behavior: smooth;
+    outline: none;
 }
 
 /* Scroll Bar */
@@ -609,7 +610,7 @@ header {
                 transition: 0.3s ease-in-out;
                 width: 10%;
                 min-width: 105px;
-                margin-right: 5px;
+                margin-left: 5px;
             }
 
                 #book-content .content-container .content-table .interactive .create-new-button:hover {
@@ -981,6 +982,175 @@ td a {
         transform: scale(1.05);
     }
 }
+
+/* warehousing */
+.warehousing {
+    padding: 50px 10% !important;
+}
+
+#form-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#company {
+    text-align: start;
+    font-size: 1.1vw;
+    font-weight: bold;
+}
+
+    #company p {
+        margin-bottom: 5px;
+    }
+
+#form-info {
+    text-align: center;
+    font-size: 0.9vw;
+}
+
+    #form-info h5 {
+        font-size: 1.05vw;
+        font-weight: bold;
+    }
+
+    #form-info p {
+        font-style: italic;
+        font-weight: lighter;
+        padding-top: 10px;
+    }
+
+#form-name {
+    padding-top: 120px;
+    text-align: center;
+    font-size: 1.05vw;
+}
+
+    #form-name h1 {
+        font-size: 2.4vw;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    #form-name p {
+        padding-top: 5px;
+    }
+
+#form-finance {
+    font-size: 1.05vw;
+    position: relative;
+}
+
+    #form-finance p {
+        padding-top: 5px;
+    }
+
+    #form-finance .form-finance-container {
+        position: absolute;
+        right: 20%;
+        top: -40px;
+    }
+
+#form-detail-info {
+    font-size: 1.05vw;
+    text-align: start;
+    padding-top: 50px;
+}
+
+    #form-detail-info p {
+        padding-top: 5px;
+    }
+
+#form-table-container {
+    padding: 30px 0;
+}
+
+table, thead, th {
+    border: solid #555555 2px;
+}
+
+    thead tr:nth-child(2) th {
+        border-top: none;
+        border-bottom: none;
+    }
+
+    thead tr:nth-child(1) th {
+        border-bottom: none;
+    }
+
+        thead tr:nth-child(1) th:nth-child(5) {
+            border-bottom: solid #555555 2px;
+        }
+
+    table th {
+        font-size: 1vw;
+        font-weight: bold;
+    }
+
+    table tbody tr td {
+        border: solid #555555 2px;
+    }
+
+    table::first-letter {
+        text-transform: capitalize;
+    }
+
+    table #table-heading th:first-child {
+        width: 5%;
+    }
+
+    table #table-heading th:nth-child(2) {
+        width: 30%;
+    }
+
+    table #table-heading th:nth-child(6),
+    table #table-heading th:nth-child(7) {
+        width: 10%;
+    }
+
+    table #table-heading th:nth-child(3),
+    table #table-heading th:nth-child(4) {
+        width: 8%;
+    }
+
+    table #table-heading th:nth-child(5) {
+        width: 16%;
+    }
+
+#payment {
+    font-size: 1vw;
+}
+
+    #payment p {
+        padding-top: 5px;
+    }
+
+#form-day {
+    position: relative;
+    padding-top: 25px;
+}
+
+    #form-day p {
+        position: absolute;
+        right: 20%;
+        font-size: 0.9vw;
+    }
+
+#sign {
+    display: flex;
+    padding-top: 40px;
+    font-size: 0.9vw;
+    width: 100%;
+}
+
+    #sign div {
+        text-align: center;
+        width: 25%;
+    }
+
+        #sign div p:first-child {
+            font-weight: bold;
+            font-size: 1vw;
+        }
 
 /* Fonts */
 @font-face {

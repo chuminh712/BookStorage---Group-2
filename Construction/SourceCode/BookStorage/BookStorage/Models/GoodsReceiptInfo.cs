@@ -96,6 +96,7 @@ namespace BookStorage.Models
 
         public int? RealQuantity { get; set; }
 
+        [DisplayFormat(DataFormatString = "#.##0")]
         public decimal? BookTotalPrice { get; set; }
     }
 }

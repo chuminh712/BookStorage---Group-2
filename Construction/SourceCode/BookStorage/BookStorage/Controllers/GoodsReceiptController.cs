@@ -1,5 +1,9 @@
 ﻿using BookStorage.Models;
 using System.Web.Mvc;
+using Rotativa;
+using System.Linq;
+using System.Collections.Generic;
+using BookStorage.Common;
 
 namespace BookStorage.Controllers
 {
@@ -79,6 +83,26 @@ namespace BookStorage.Controllers
             var dao = new GoodsReceipt();
             var goodsReceipt = dao.GetByID(id);
             return View(goodsReceipt);
+        }
+
+        public ActionResult Print(int id)
+        {
+            var dao = new GoodsReceipt();
+            var goodsReceipt = dao.GetByID(id);
+            return View(goodsReceipt);
+        }
+
+        public ActionResult PrintPdf(int id)
+        {
+            var dao = new GoodsReceipt();
+            var goodsReceipt = dao.GetByID(id);
+            ViewBag.TotalPriceText = NumberToText.NumberToTextVN((decimal)goodsReceipt.TotalPrice);
+            return new ViewAsPdf()
+            {
+                FormsAuthenticationCookieName = System.Web.Security.FormsAuthentication.FormsCookieName,
+                ViewName = "Print",
+                Model = goodsReceipt
+            };
         }
 
         [HttpDelete]

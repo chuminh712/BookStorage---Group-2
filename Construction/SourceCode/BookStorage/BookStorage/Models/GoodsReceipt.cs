@@ -118,6 +118,7 @@
         public string Code { get; set; }
 
         [Display(Name = "Tổng số tiền")]
+        [DisplayFormat(DataFormatString = "#.##0")]
         public decimal? TotalPrice { get; set; }
 
         [Display(Name = "Trạng thái")]
