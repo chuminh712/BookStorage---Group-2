@@ -1,5 +1,4 @@
-﻿
-$("#addButton").on('click', function () {
+﻿$("#addButton").on('click', function () {
     AddRow();
 });
 
@@ -40,7 +39,7 @@ $("#realQuantity").on("change", function () {
 
 function AddRow() {
     var selectedBook = GetSelectedBook();
-    var index = $("#goodsReceiptInfoTable").children("tr").length; 
+    var index = $("#goodsReceiptInfoTable").children("tr").length;
     var sl = index;
     var bookID = "<td style='display:none'> <input type='hidden' id='bookID" + index + "' name='GoodsReceiptInfo[" + index + "].bookID' value='" + selectedBook.bookID + "'/>" + selectedBook.bookID + "</td>";
     var serialCell = "<td>" + (++sl) + "</td>";
@@ -82,6 +81,7 @@ function GetSelectedBook() {
 
 var getDeleteId = function (id) {
     $("#delRow_" + id).remove();
+    receiptTotalPrice();
 };
 
 function receiptTotalPrice() {
