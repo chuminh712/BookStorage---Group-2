@@ -231,3 +231,4 @@ E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Mi
 E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.Web.xml
 E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csproj.CopyComplete
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Rotativa.dll
