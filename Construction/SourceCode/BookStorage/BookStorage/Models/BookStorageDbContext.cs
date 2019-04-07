@@ -15,7 +15,7 @@ namespace BookStorage.Models
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<BookCategory> BookCategories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<GoodsIssue> GoodsIssues { get; set; }
+        public virtual DbSet<GoodsIssue> GoodsIssue { get; set; }
         public virtual DbSet<GoodsIssueInfo> GoodsIssueInfoes { get; set; }
         public virtual DbSet<GoodsReceipt> GoodsReceipts { get; set; }
         public virtual DbSet<GoodsReceiptInfo> GoodsReceiptInfoes { get; set; }
