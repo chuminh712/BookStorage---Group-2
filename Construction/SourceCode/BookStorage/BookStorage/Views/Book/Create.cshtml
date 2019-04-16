@@ -15,11 +15,6 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div id="create-new-form" class="create-new-book">
         <div id="import-form-info">
-            <div>
-                <p>@Html.LabelFor(model => model.BookID)</p>
-                @Html.EditorFor(model => model.BookID, new { htmlAttributes = new { placeholder = "Mã sách" } })
-                @Html.ValidationMessageFor(model => model.BookID, "", new { @class = "text-danger" })
-            </div>
 
             <div>
                 <p>@Html.LabelFor(model => model.Name)</p>
@@ -67,12 +62,6 @@
                 <p>@Html.LabelFor(model => model.Publisher)</p>
                 @Html.EditorFor(model => model.Publisher, null, "Nhà phát hành")
                 @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
-            </div>
-
-            <div>
-                <p>@Html.LabelFor(model => model.CreatedDate)</p>
-                @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { placeholder = "Ngày tạo" } })
-                @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
             </div>
 
             <div>
