@@ -605,7 +605,6 @@ header .logout a:hover i {
     transition: 0.3s ease-in-out;
     width: 10%;
     min-width: 105px;
-    margin-right:5px;
 }
 
 #book-content .content-container .content-table .interactive .create-new-button:hover {
@@ -697,11 +696,6 @@ td a:nth-child(1) {
 
 td a:nth-child(2) {
     background: #f64c72;
-}
-
-td a:nth-child(3) {
-    background: #26af92;
-    margin-top: 10px;
 }
 
 td a:hover {
@@ -1083,7 +1077,7 @@ td a:hover {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 5px;
+    padding-top: 5vh;
 }
 
 .create-new-confirm button {

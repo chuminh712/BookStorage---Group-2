@@ -3,34 +3,25 @@ $("#addButton").on('click', function () {
     AddRow();
 });
 
-$("#bookCode").on("change", function () {
-    var code = $("#bookCode").val();
+$("#bookID").on("change", function () {
+    var id = $("#bookID").val();
     $.ajax({
         url: "/GoodsReceipt/GetBookPrice",
         type: "post",
-        data: { code: code },
+        data: { id: id },
         success: function (response) {
             $("#price").val(response);
-        }
-    });
-
-    $.ajax({
-        url: "/GoodsReceipt/GetBookID",
-        type: "post",
-        data: { code: code },
-        success: function (response) {
-            $("#bookID").val(response);
         }
     });
 });
 
 $("#realQuantity").on("change", function () {
-    var code = $("#bookCode").val();
+    var id = $("#bookID").val();
     var realQuantity = $("#realQuantity").val();
     $.ajax({
         url: "/GoodsReceipt/GetBookPrice",
         type: "post",
-        data: { code: code },
+        data: { id: id },
         success: function (response) {
             $("#bookTotalPrice").val(response * realQuantity);
         }
@@ -42,18 +33,18 @@ function AddRow() {
     var selectedBook = GetSelectedBook();
     var index = $("#goodsReceiptInfoTable").children("tr").length; 
     var sl = index;
-    var bookID = "<td style='display:none'> <input type='hidden' id='bookID" + index + "' name='GoodsReceiptInfo[" + index + "].bookID' value='" + selectedBook.bookID + "'/>" + selectedBook.bookID + "</td>";
+    var indexCell = "<td style='display:none'> <input type='hidden' id='index" + index + "' name='GoodsReceiptInfo.index' value='" + index + "'/> </td>";
     var serialCell = "<td>" + (++sl) + "</td>";
-    var bookCodeCell = "<td> <input type='hidden' id='bookCode" + index + "' name='GoodsReceiptInfo[" + index + "].bookCode' value='" + selectedBook.bookCode + "' />" + selectedBook.bookCode + " </td>";
+    var bookIDCell = "<td> <input type='hidden' id='bookID" + index + "' name='GoodsReceiptInfo[" + index + "].bookID' value='" + selectedBook.bookID + "' />" + selectedBook.bookID + " </td>";
     var receiptQuantityCell = "<td> <input type='hidden' id='receiptQuantity" + index + "' name='GoodsReceiptInfo[" + index + "].receiptQuantity' value='" + selectedBook.receiptQuantity + "' />" + selectedBook.receiptQuantity + " </td>";
     var realQuantityCell = "<td> <input type='hidden' id='realQuantity" + index + "' name='GoodsReceiptInfo[" + index + "].realQuantity' value='" + selectedBook.realQuantity + "' />" + selectedBook.realQuantity + " </td>";
     var priceCell = "<td>" + selectedBook.price + "</td>";
     var totalPriceCell = "<td class='total'> <input type='hidden' id='bookTotalPrice" + index + "' name='GoodsReceiptInfo[" + index + "].bookTotalPrice' value='" + selectedBook.bookTotalPrice + "' />" + selectedBook.bookTotalPrice + " </td >";
     var actionCell = "<td>" + "<input type='button' class='btn btn-danger' value='Xóa' onclick='getDeleteId(" + index + ")' id='" + index + "'/></td>";
-    var createNewRow = "<tr id='delRow_" + index + "'> " + serialCell + bookID + bookCodeCell + receiptQuantityCell + realQuantityCell + priceCell + totalPriceCell + actionCell + " </tr>";
+    var createNewRow = "<tr id='delRow_" + index + "'> " + indexCell + serialCell + bookIDCell + receiptQuantityCell + realQuantityCell + priceCell + totalPriceCell + actionCell + " </tr>";
 
     $("#goodsReceiptInfoTable").append(createNewRow);
-    $("#bookCode").val("");
+    $("#bookID").val("");
     $("#receiptQuantity").val("");
     $("#realQuantity").val("");
     $("#price").val("");
@@ -63,21 +54,19 @@ function AddRow() {
 
 function GetSelectedBook() {
 
-    var bookCode = $("#bookCode").val();
     var bookID = $("#bookID").val();
     var receiptQuantity = $("#receiptQuantity").val();
     var realQuantity = $("#realQuantity").val();
     var price = $("#price").val();
     var bookTotalPrice = price * realQuantity;
-    var item = {
-        "bookCode": bookCode,
+    var Item = {
         "bookID": bookID,
         "receiptQuantity": receiptQuantity,
         "realQuantity": realQuantity,
         "price": price,
         "bookTotalPrice": bookTotalPrice
     };
-    return item;
+    return Item;
 }
 
 var getDeleteId = function (id) {
