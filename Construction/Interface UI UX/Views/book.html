@@ -11,18 +11,85 @@
     <title>Book Storage</title>
 </head>
 <body class="f-roboto">
-    <!--------------------- START LOADING (All pages) -------------------->
-    <div class="loader-container">
-        <?xml version="1.0" encoding="utf-8"?>
-        <svg class="loader" xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" x="0" y="0" viewBox="0 0 200 200" xml:space="preserve"><path class="loaderreverse" d="M200 100c0-30.3-13.5-57.5-34.8-75.8 -4.8-4.1-12.2-3-15.8 2.3v0c-3 4.5-2.4 10.7 1.8 14.2 16.6 14.4 27.1 35.6 27.1 59.3s-10.5 44.9-27.1 59.3c-4.1 3.6-4.8 9.7-1.8 14.2v0c3.6 5.3 11 6.4 15.8 2.3C186.5 157.5 200 130.3 200 100z"/><path d="M156.7 100c0-14.9-5.8-28.5-15.2-38.6 -4.6-4.9-12.6-4.1-16.3 1.4l-0.4 0.6c-2.8 4.1-2.2 9.5 1.2 13.2 5.7 6.2 9.1 14.4 9.1 23.5 0 9-3.4 17.3-9.1 23.5 -3.3 3.7-3.9 9-1.2 13.2l0.4 0.6c3.7 5.6 11.7 6.3 16.3 1.4C150.9 128.5 156.7 114.9 156.7 100z"/></svg>
-    </div>
-    <!--------------------- END LOADING (All pages) -------------------->
-
     <!-- Import Form -->
     <div class="import-form-container">
         <div class="form-div">
-            <input type="file">
-            <button onclick="closeImportForm()">Trở về</button>
+            <div class="form-title">Phiếu nhập kho</div>
+            <div>
+                <p>Ngày nhập</p>
+                <input type="date" required>
+            </div>
+            <div>
+                <p>Số: PNK</p>
+                <input type="number" required>
+            </div>
+            <div>
+                <p>Người chuyển</p>
+                <input type="number" required>
+            </div>
+            <div id="import-form-row">
+                <div class="input-container">
+                    <p>1</p>
+                    <input type="text" placeholder="Mã sách">
+                    <input type="text" placeholder="Tên sách">
+                    <input type="number" placeholder="Số lượng dự kiến">
+                    <input type="number" placeholder="Số lượng thực nhận">
+                    <input type="number" placeholder="Gía tiền (VND)">
+                    <input type="number" placeholder="Thành tiền (VND)">
+                </div>
+            </div>
+            <div>
+                <button onclick="addRow()"><i class="fas fa-plus-circle"></i>Thêm</button>
+            </div>
+            <div>
+                <p>Tổng số tiền (VND): </p>
+                <input type="number">
+            </div>
+            <div>
+                <button><i class="fas fa-file-upload"></i>Nhập phiếu</button>
+                <button onclick="closeImportForm()"><i class="fas fa-ban"></i>Huỷ bỏ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Form -->
+    <div class="import-form-container export-form-container">
+        <div class="form-div">
+            <div class="form-title">Phiếu xuất kho</div>
+            <div>
+                <p>Ngày xuất</p>
+                <input type="date" required>
+            </div>
+            <div>
+                <p>Số: PXK</p>
+                <input type="number" required>
+            </div>
+            <div>
+                <p>Người nhận</p>
+                <input type="text" required>
+            </div>
+            <div id="import-form-row">
+                <div class="input-container">
+                    <p>1</p>
+                    <input type="text" placeholder="Mã sách">
+                    <input type="text" placeholder="Tên sách">
+                    <input type="text" placeholder="Lý do xuất">
+                    <input type="number" placeholder="Số lượng">
+                    <input type="number" placeholder="Gía tiền (VND)">
+                    <input type="number" placeholder="Thành tiền (VND)">
+                </div>
+            </div>
+            <div>
+                <button onclick="addRow()"><i class="fas fa-plus-circle"></i>Thêm</button>
+            </div>
+            <div>
+                <p>Tổng số tiền (VND): </p>
+                <input type="number">
+            </div>
+            <div>
+                <button><i class="fas fa-file-download"></i>Xuất phiếu</button>
+                <button onclick="closeExportForm()"><i class="fas fa-ban"></i>Huỷ bỏ</button>
+            </div>
         </div>
     </div>
 
@@ -137,7 +204,7 @@
                 <hr>
                 <div class="import-export">
                     <button onclick="showImportForm()">Nhập tự động</button>
-                    <button onclick="">Xuất tự động</button>
+                    <button onclick="showExportForm()">Xuất tự động</button>
                 </div>
                 <div class="content-container">
                     <div class="content-title">Tra cứu đầu sách</div>
@@ -525,10 +592,7 @@
         </div>
         <!--------------------- END CONTENT (Each page) ---------------------->
     </div>
-    <script src="http://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-            crossorigin="anonymous">
-    </script>
     <script src="../Public/JS/index.js"></script>
+    <script src="../Public/JS/testLayout.js"></script>
 </body>
 </html>

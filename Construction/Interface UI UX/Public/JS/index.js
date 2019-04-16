@@ -1,7 +1,3 @@
-$(window).load(function(){
-    $('.loader-container').fadeOut('slow');
-});
-
 function showPassword() {
     const passwordField = document.getElementById('password-input');
     if (passwordField.type === "password") {
@@ -11,12 +7,6 @@ function showPassword() {
     }
 }
 
-if (document.getElementById('sidebar')) {
-    var sidebar = document.getElementById('sidebar');
-}
-if (document.getElementById('content')) {
-    var content = document.getElementById('content');
-}
 function direct(location) {
     window.location.href = location;
 }
@@ -25,6 +15,12 @@ if (document.getElementById('search-sidebar')) {
 }
 if (document.getElementById('sidebar-title')) {
     var sidebarTitle = document.getElementById('sidebar-title');
+}
+if (document.getElementById('sidebar')) {
+    var sidebar = document.getElementById('sidebar');
+}
+if (document.getElementById('content')) {
+    var content = document.getElementById('content');
 }
 if (document.getElementsByClassName('admin-info')[0]) {
     var adminInfo = document.getElementsByClassName('admin-info')[0];
@@ -40,9 +36,9 @@ if (document.getElementsByClassName('administrator')) {
 }
 
 function menuDisplay() {
-    if (sidebar.style.width != '53px') {
-        sidebar.style.width = '53px';
-        content.style.width = `${ window.innerWidth - 53 }px`;
+    if (sidebar.style.width != '3%') {
+        sidebar.style.width = '3%';
+        content.style.width = '97%';
         adminInfo.style.display = 'none';
         avatarSidebar.style.width = '30px';
         avatarSidebar.style.height = '30px';
@@ -73,12 +69,64 @@ function menuDisplay() {
     }
 }
 
+function addRow() {
+    var input = document.getElementsByTagName('input');
+    var inputContainer = document.getElementsByClassName('input-container');
+    var importFormRow = document.getElementById('import-form-row');
+    var inputHTML = [];
+    for (i = 0; i < inputContainer.length; i++) {
+        var j = i * 6 + 2;
+        inputHTML[i] = `
+            <div class="input-container">
+                <p>${ i + 1 }</p>
+                <input type="${ input[j].type }" value="${ input[j].value }">
+                <input type="${ input[j + 1].type }" value="${ input[j + 1].value }">
+                <input type="${ input[j + 2].type }" value="${ input[j + 2].value }">            
+                <input type="${ input[j + 3].type }" value="${ input[j + 3].value }">
+                <input type="${ input[j + 4].type }" value="${ input[j + 4].value }">
+                <input type="${ input[j + 5].type }" value="${ input[j + 5].value }">
+            </div>
+        `;
+    }
+    var oldValue = `${inputHTML.join("")}`;
+    var newValue = `
+        <div>
+            <p>${ inputContainer.length + 1 }</p>
+            <input type="text" placeholder="Mã sách">
+            <input type="text" placeholder="Tên sách">
+            <input type="number" placeholder="Số lượng dự kiến">
+            <input type="number" placeholder="Số lượng thực nhận">
+            <input type="number" placeholder="Gía tiền (VND)">
+            <input type="number" placeholder="Thành tiền (VND)">
+        </div>
+    `;
+    importFormRow.innerHTML = `${ oldValue }${ newValue }`;
+}
+
 function showImportForm() {
-    document.getElementsByClassName('import-form-container')[0].style.display = 'flex';
-    document.getElementsByClassName('import-form-container')[0].style.background = 'rgba(109, 109, 109, 0.7)';
+    if (document.getElementsByClassName('import-form-container')) {
+        var importFormContainer = document.getElementsByClassName('import-form-container')[0];
+        importFormContainer.style.display = "flex";
+    }
 }
 
 function closeImportForm() {
-    document.getElementsByClassName('import-form-container')[0].style.display = 'none';
-    document.getElementsByClassName('import-form-container')[0].style.background = 'rgba(0, 0, 0, 0.7)';
+    if (document.getElementsByClassName('import-form-container')) {
+        var importFormContainer = document.getElementsByClassName('import-form-container')[0];
+        importFormContainer.style.display = "none";
+    }
+}
+
+function showExportForm() {
+    if (document.getElementsByClassName('export-form-container')) {
+        var exportFormContainer = document.getElementsByClassName('export-form-container')[0];
+        exportFormContainer.style.display = "flex";
+    }
+}
+
+function closeExportForm() {
+    if (document.getElementsByClassName('export-form-container')) {
+        var exportFormContainer = document.getElementsByClassName('export-form-container')[0];
+        exportFormContainer.style.display = "none";
+    }
 }
