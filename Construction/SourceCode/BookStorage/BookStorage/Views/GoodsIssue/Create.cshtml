@@ -1,0 +1,136 @@
+﻿@model BookStorage.Models.GoodsIssue
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script src="~/Scripts/"></script>
+}
+
+@using (Html.BeginForm("Create", "GoodsIssue", FormMethod.Post))
+{
+    <div class="create-new-title">Thêm mới phiếu xuất</div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div id="create-new-form" class="create-new-book">
+        <div id="import-form-info">
+            <div>
+                @Html.EditorFor(model => model.ReciverName, new { htmlAttributes = new { placeholder = "Tên Người nhận" } })
+                @Html.ValidationMessageFor(model => model.ReciverName, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.CreatedDate)</p>
+                @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { placeholder = "Ngày tạo" } })
+                @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.CustomerID)</p>
+                @Html.DropDownListFor(model => model.CustomerID, null, "Lựa chọn")
+                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Debit)</p>
+                @Html.EditorFor(model => model.Debit, new { htmlAttributes = new { placeholder = "Nợ" } })
+                @Html.ValidationMessageFor(model => model.Debit, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Credit)</p>
+                @Html.EditorFor(model => model.Credit, new { htmlAttributes = new { placeholder = "Có" } })
+                @Html.ValidationMessageFor(model => model.Credit, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Code)</p>
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { placeholder = "Mã phiếu nhập" } })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.OutputReason)</p>
+                @Html.EditorFor(model => model.OutputReason, new { htmlAttributes = new { id = "receiptTotalPrice", placeholder = "Tổng số tiền" } })
+                @Html.ValidationMessageFor(model => model.OutputReason, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Status)</p>
+                @Html.CheckBoxFor(model => model.Status)
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div id="book-info">
+            <div class="create-new-add">
+                <div>
+                    <p>@Html.Label("bookID", "Mã sách")</p>
+                    @Html.Editor("bookID", new { htmlAttributes = new { placeholder = "Mã sách" } })
+                    @Html.ValidationMessage("bookID", "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    <p>@Html.Label("receiptQuantity", "Số lượng theo chứng từ")</p>
+                    @Html.Editor("receiptQuantity", new { htmlAttributes = new { placeholder = "Số lượng theo chứng từ" } })
+                    @Html.ValidationMessage("receiptQuantity", "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    <p>@Html.Label("realQuantity", "Số lượng thực nhập")</p>
+                    @Html.Editor("realQuantity", new { htmlAttributes = new { placeholder = "Số lượng thực nhập" } })
+                    @Html.ValidationMessage("realQuantity", "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    <p>@Html.Label("price", "Đơn giá")</p>
+                    @Html.Editor("price", new { htmlAttributes = new { placeholder = "Đơn giá" } })
+                    @Html.ValidationMessage("price", "", new { @class = "text-danger" })
+                </div>
+
+                <div>
+                    <p>@Html.Label("bookTotalPrice", "Tổng số tiền")</p>
+                    @Html.Editor("bookTotalPrice", new { htmlAttributes = new { placeholder = "Tổng số tiền" } })
+                    @Html.ValidationMessage("bookTotalPrice", "", new { @class = "text-danger" })
+                </div>
+                <div><button value="Add" id="addButton" type="button"><i class="fas fa-plus"></i>Thêm</button></div>
+            </div>
+            <div class="create-new-table">
+                <table>
+                    <thead>
+                        <tr class="table-title-row">
+                            <td>STT</td>
+                            <td>Mã Sách</td>
+                            <td>Số lượng theo chứng từ</td>
+                            <td>Số lượng thực nhập</td>
+                            <td>Đơn giá</td>
+                            <td>Tổng số tiền</td>
+                            <td>Thao tác</td>
+                        </tr>
+                    </thead>
+                    <tbody id="goodsReceiptInfoTable">
+                        @if (Model != null && Model.GoodsReceiptInfo != null)
+                        {
+                            var sl = 0;
+                            foreach (var item in Model.GoodsReceiptInfo)
+                            {
+                                <tr class="table-content-row">
+                                    <td>@(++sl)</td>
+                                    <td>@item.BookID</td>
+                                    <td>@item.ReceiptQuantity</td>
+                                    <td>@item.RealQuantity</td>
+                                    <td>@item.Book.Price</td>
+                                    <td>@item.BookTotalPrice</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="create-new-confirm">
+        <button value="Create" type="submit"><i class="fas fa-plus-circle"></i>Tạo mới</button>
+        <button onclick="history.back(-1)" type="button"><i class="fas fa-ban"></i>Trở về</button>
+    </div>
+}
