@@ -166,8 +166,8 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
-    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\GoodsReceiptController.cs" />
+    <Compile Include="Controllers\GoodsReceiptInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -272,9 +272,9 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\GoodsReceipt\Edit.cshtml" />
-    <Content Include="Views\Book\Create.cshtml" />
-    <Content Include="Views\Book\Edit.cshtml" />
-    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\GoodsReceipt\Detail.cshtml" />
+    <Content Include="Views\GoodsReceiptInfo\Create.cshtml" />
+    <Content Include="Views\GoodsReceiptInfo\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

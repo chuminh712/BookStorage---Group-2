@@ -51,7 +51,7 @@ namespace BookStorage.Controllers
         {
             var dao = new Book();
             var book = dao.GetByID(id);
-            //SetViewBag(book.BookCategoryID);
+            SetViewBag(book.BookID);
             return View(book);
         }
 
@@ -72,7 +72,7 @@ namespace BookStorage.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            //SetViewBag(book.BookCategoryID);
+            SetViewBag(book.BookID);
             return View("Index");
         }
 
@@ -83,10 +83,17 @@ namespace BookStorage.Controllers
             return RedirectToAction("Index");
         }
 
-        public void SetViewBag(int? categoryID = null)
-        {
-            var dao = new BookCategory();
-            ViewBag.BookCategoryID = new SelectList(dao.ListAll(), "ID", "Name", categoryID);
-        }
+        //public void SetViewBag(int? ID = null)
+        //{
+        //    var dao = new Supplier();
+        //    ViewBag.SupplierID = new SelectList(dao.ListAll(), "ID", "Name", supplierID);
+        //}
+
+        //public JsonResult GetBookPrice(int id)
+        //{
+        //    var dao = new Book();
+        //    var bookPrice = dao.GetByID(id).Price;
+        //    return Json(bookPrice);
+        //}
     }
 }
