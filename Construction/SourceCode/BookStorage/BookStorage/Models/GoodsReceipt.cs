@@ -21,6 +21,11 @@
 
         public int Insert(GoodsReceipt entity)
         {
+            foreach(var item in entity.GoodsReceiptInfo)
+            {
+                var book = db.Books.Find(item.BookID);
+                book.Quantity += item.RealQuantity;
+            }
             db.GoodsReceipts.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -64,6 +69,11 @@
             {
                 var goodsReceipt = db.GoodsReceipts.Find(id);
                 var goodsReceiptInfoes = db.GoodsReceiptInfoes.Where(x => x.GoodsReceiptID == id);
+                foreach(var item in goodsReceiptInfoes)
+                {
+                    var book = db.Books.Find(item.BookID);
+                    book.Quantity -= item.RealQuantity;
+                }
                 db.GoodsReceipts.Remove(goodsReceipt);
                 db.GoodsReceiptInfoes.RemoveRange(goodsReceiptInfoes);
                 db.SaveChanges();
@@ -108,6 +118,7 @@
         public string Code { get; set; }
 
         [Display(Name = "Tổng số tiền")]
+        [DisplayFormat(DataFormatString = "#.##0")]
         public decimal? TotalPrice { get; set; }
 
         [Display(Name = "Trạng thái")]
