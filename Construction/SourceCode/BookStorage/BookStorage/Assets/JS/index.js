@@ -1,5 +1,8 @@
-$(window).load(function(){
+$(window).load(function () {
     $('.loader-container').fadeOut('slow');
+
+    $('#AlertBox').removeClass('hide');
+    $('#AlertBox').delay(1000).slideUp(500);
 });
 
 function showPassword() {
