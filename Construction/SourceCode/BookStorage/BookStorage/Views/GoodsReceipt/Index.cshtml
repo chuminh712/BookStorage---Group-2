@@ -49,11 +49,18 @@
                         <tr class="table-content-row" id="row_@item.ID">
                             <td>@item.Code</td>
                             <td>@item.DelivererName</td>
-                            <td>@item.CreatedDate</td>
-                            <td>@item.Supplier.Name</td>
+                            <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                            @if (item.Supplier != null)
+                            {
+                                <td>@item.Supplier.Name</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
                             <td>@item.Debit</td>
                             <td>@item.Credit</td>
-                            <td>@item.TotalPrice</td>
+                            <td>@String.Format("{0:#,##0}", item.TotalPrice)</td>
                             <td>
                                 @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
                                 @Ajax.ActionLink(" Xóa", "Delete", new { id = item.ID }, new AjaxOptions

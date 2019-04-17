@@ -1,6 +1,7 @@
 * {
     margin: 0;
     scroll-behavior: smooth;
+    outline: none;
 }
 
 /* Scroll Bar */
@@ -968,6 +969,175 @@ td a:hover {
     100% {
         transform: scale(1.05);
     }
+}
+
+/* warehousing */
+.warehousing {
+    padding: 50px 10% !important;
+}
+
+#form-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#company {
+    text-align: start;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#company p {
+    margin-bottom: 5px;
+}
+
+#form-info {
+    text-align: center;
+    font-size: 14px;
+}
+
+#form-info h5 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#form-info p {
+    font-style: italic;
+    font-weight: lighter;
+    padding-top: 10px;
+}
+
+#form-name {
+    padding-top: 120px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#form-name h1 {
+    font-size: 45px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#form-name p {
+    padding-top: 5px;
+}
+
+#form-finance {
+    font-size: 18px;
+    position: relative;
+}
+
+#form-finance p {
+    padding-top: 5px;
+}
+
+#form-finance .form-finance-container {
+    position: absolute;
+    right: 20%;
+    top: -40px;
+}
+
+#form-detail-info {
+    font-size: 18px;
+    text-align: start;
+    padding-top: 50px;
+}
+
+#form-detail-info p {
+    padding-top: 5px;
+}
+
+#form-table-container {
+    padding: 30px 0;
+}
+
+table, thead, th {
+    border: solid #555555 2px;
+}
+
+thead tr:nth-child(2) th {
+    border-top: none;
+    border-bottom: none;
+}
+
+thead tr:nth-child(1) th {
+    border-bottom: none;
+}
+
+thead tr:nth-child(1) th:nth-child(5) {
+    border-bottom: solid #555555 2px;
+}
+
+table th {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+table tbody tr td {
+    border: solid #555555 2px;
+}
+
+table::first-letter {
+    text-transform: capitalize;
+}
+
+table #table-heading th:first-child {
+    width: 5%;
+}
+
+table #table-heading th:nth-child(2) {
+    width: 30%;
+}
+
+table #table-heading th:nth-child(6),
+table #table-heading th:nth-child(7) {
+    width: 10%;
+}
+
+table #table-heading th:nth-child(3),
+table #table-heading th:nth-child(4) {
+    width: 8%;
+}
+
+table #table-heading th:nth-child(5) {
+    width: 16%;
+}
+
+#payment {
+    font-size: 17px;
+}
+
+#payment p {
+    padding-top: 5px;
+}
+
+#form-day {
+    position: relative;
+    padding-top: 25px;
+}
+
+#form-day p {
+    position: absolute;
+    right: 20%;
+    font-size: 16px;
+}
+
+#sign {
+    display: flex;
+    padding-top: 40px;
+    font-size: 16px;
+    width: 100%;
+}
+
+#sign div {
+    text-align: center;
+    width: 25%;
+}
+
+#sign div p:first-child {
+    font-weight: bold;
+    font-size: 17px;
 }
 
 /* Fonts */

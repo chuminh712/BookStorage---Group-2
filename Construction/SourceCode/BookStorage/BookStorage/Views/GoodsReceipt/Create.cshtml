@@ -7,6 +7,7 @@
 
 @section scripts {
     <script src="~/Scripts/Project/GoodsReceipt/goodsReceiptCreate.js"></script>
+    <script src="~/Scripts/Project/datepicker.js"></script>
 }
 
 @using (Html.BeginForm("Create", "GoodsReceipt", FormMethod.Post))
@@ -23,7 +24,7 @@
 
             <div>
                 <p>@Html.LabelFor(model => model.CreatedDate)</p>
-                @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { placeholder = "Ngày tạo" } })
+                @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "datepicker", placeholder = "Ngày tạo" } })
                 @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
             </div>
 
