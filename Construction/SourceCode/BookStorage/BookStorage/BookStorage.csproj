@@ -172,6 +172,8 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\GoodsIssueController.cs" />
     <Compile Include="Controllers\GoodsIssueInfoController.cs" />
     <Compile Include="Controllers\GoodsReceiptController.cs" />
     <Compile Include="Controllers\GoodsReceiptInfoController.cs" />
@@ -339,6 +341,15 @@
     <Content Include="Views\Shared\_PrintLayout.cshtml" />
     <Content Include="Views\GoodsIssueInfo\Create.cshtml" />
     <Content Include="Views\GoodsIssueInfo\Edit.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\GoodsIssue\Create.cshtml" />
+    <Content Include="Views\GoodsIssue\Edit.cshtml" />
+    <Content Include="Views\GoodsIssue\Index.cshtml" />
+    <Content Include="Views\Supplier\Create.cshtml" />
+    <Content Include="Views\Supplier\Edit.cshtml" />
+    <Content Include="Views\Supplier\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
