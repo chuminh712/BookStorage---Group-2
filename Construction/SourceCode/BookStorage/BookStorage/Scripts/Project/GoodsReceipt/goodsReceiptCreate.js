@@ -52,6 +52,7 @@ function AddRow() {
     var createNewRow = "<tr id='delRow_" + index + "'> " + serialCell + bookID + bookCodeCell + receiptQuantityCell + realQuantityCell + priceCell + totalPriceCell + actionCell + " </tr>";
 
     $("#goodsReceiptInfoTable").append(createNewRow);
+    $("#bookID").val("");
     $("#bookCode").val("");
     $("#receiptQuantity").val("");
     $("#realQuantity").val("");
@@ -61,7 +62,6 @@ function AddRow() {
 }
 
 function GetSelectedBook() {
-
     var bookCode = $("#bookCode").val();
     var bookID = $("#bookID").val();
     var receiptQuantity = $("#receiptQuantity").val();
@@ -90,7 +90,7 @@ function receiptTotalPrice() {
         $("#receiptTotalPrice").val(0);
     }
     else {
-        $("#goodsReceiptInfoTable tr ").each(function (index, value) {
+        $("#goodsReceiptInfoTable tr ").each(function (index) {
             var total = parseFloat((document.getElementById("bookTotalPrice" + index).value));
             sumOfTotal = sumOfTotal + total;
             $("#receiptTotalPrice").val(sumOfTotal);

@@ -21,7 +21,7 @@ namespace BookStorage.Models
         {
             var goodsReceipt = db.GoodsReceipts.Find(entity.GoodsReceiptID);
             entity.Book = db.Books.Where(x => x.Code == entity.Book.Code).FirstOrDefault();
-            entity.Book.Quantity -= entity.RealQuantity;
+            entity.Book.Quantity += entity.RealQuantity;
             entity.BookTotalPrice = entity.Book.Price * entity.RealQuantity;
             goodsReceipt.TotalPrice += entity.BookTotalPrice;
             db.GoodsReceiptInfoes.Add(entity);
