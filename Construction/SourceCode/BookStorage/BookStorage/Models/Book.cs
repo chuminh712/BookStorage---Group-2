@@ -29,7 +29,7 @@ namespace BookStorage.Models
             return db.Books.Where(x => x.Code == code).FirstOrDefault();
         }
 
-        public int BookID { get; set; }
+        public int ID { get; set; }
 
         [StringLength(500)]
         public string Name { get; set; }
@@ -65,16 +65,16 @@ namespace BookStorage.Models
         {
             db.Books.Add(entity);
             db.SaveChanges();
-            return entity.BookID;
+            return entity.ID;
         }
 
         public bool Update(Book entity)
         {
             try
             {
-                var book = db.Books.Find(entity.BookID);
+                var book = db.Books.Find(entity.ID);
                 book.Name = entity.Name;
-                book.BookID = entity.BookID;
+                book.ID = entity.ID;
                 book.UnitID = entity.UnitID;
                 book.Author = entity.Author;
                 book.BookCategoryID = entity.BookCategoryID;

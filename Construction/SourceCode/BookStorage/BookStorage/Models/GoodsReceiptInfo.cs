@@ -21,8 +21,9 @@ namespace BookStorage.Models
         {
             var goodsReceipt = db.GoodsReceipts.Find(entity.GoodsReceiptID);
             entity.Book = db.Books.Where(x => x.Code == entity.Book.Code).FirstOrDefault();
+            entity.Book.Quantity += entity.RealQuantity;
             entity.BookTotalPrice = entity.Book.Price * entity.RealQuantity;
-            goodsReceipt.TotalPrice += entity.BookTotalPrice;
+            goodsReceipt.TotalPrice -= entity.BookTotalPrice;
             db.GoodsReceiptInfoes.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -35,16 +36,19 @@ namespace BookStorage.Models
                 var goodsReceiptInfo = db.GoodsReceiptInfoes.Find(entity.ID);
                 var goodsReceipt = db.GoodsReceipts.Find(entity.GoodsReceiptID);
                 int? compareQuantity = 0;
+
                 goodsReceiptInfo.ReceiptQuantity = entity.ReceiptQuantity;
                 if(goodsReceiptInfo.RealQuantity > entity.RealQuantity)
                 {
                     compareQuantity = goodsReceiptInfo.RealQuantity - entity.RealQuantity;
-                    goodsReceipt.TotalPrice -= compareQuantity * goodsReceiptInfo.Book.Price;
+                    goodsReceiptInfo.Book.Quantity += compareQuantity;
+                    goodsReceipt.TotalPrice += compareQuantity * goodsReceiptInfo.Book.Price;
                 }
-                else
+                else if (goodsReceiptInfo.RealQuantity < entity.RealQuantity)
                 {
                     compareQuantity = entity.RealQuantity - goodsReceiptInfo.RealQuantity;
-                    goodsReceipt.TotalPrice += compareQuantity * goodsReceiptInfo.Book.Price;
+                    goodsReceiptInfo.Book.Quantity -= compareQuantity;
+                    goodsReceipt.TotalPrice -= compareQuantity * goodsReceiptInfo.Book.Price;
                 }
                 goodsReceiptInfo.RealQuantity = entity.RealQuantity;
                 goodsReceiptInfo.BookTotalPrice = entity.RealQuantity * goodsReceiptInfo.Book.Price;
@@ -63,7 +67,8 @@ namespace BookStorage.Models
             {
                 var goodsReceiptInfo = db.GoodsReceiptInfoes.Find(id);
                 var goodsReceipt = db.GoodsReceipts.Find(goodsReceiptInfo.GoodsReceiptID);
-                goodsReceipt.TotalPrice -= goodsReceiptInfo.BookTotalPrice;
+                goodsReceiptInfo.Book.Quantity += goodsReceiptInfo.RealQuantity;
+                goodsReceipt.TotalPrice += goodsReceiptInfo.BookTotalPrice;
                 db.GoodsReceiptInfoes.Remove(goodsReceiptInfo);
                 db.SaveChanges();
                 return true;
@@ -91,6 +96,7 @@ namespace BookStorage.Models
 
         public int? RealQuantity { get; set; }
 
+        [DisplayFormat(DataFormatString = "#.##0")]
         public decimal? BookTotalPrice { get; set; }
     }
 }

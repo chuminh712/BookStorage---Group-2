@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BookStorage</RootNamespace>
     <AssemblyName>BookStorage</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -27,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,8 +61,12 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.4-rc\lib\net45\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -69,11 +74,8 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -118,6 +120,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -165,7 +168,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\NumberToText.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\GoodsIssueController.cs" />
+    <Compile Include="Controllers\GoodsIssueInfoController.cs" />
     <Compile Include="Controllers\GoodsReceiptController.cs" />
     <Compile Include="Controllers\GoodsReceiptInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -205,18 +214,58 @@
     <Content Include="Assets\Images\logo.png" />
     <Content Include="Assets\Images\online.png" />
     <Content Include="Assets\Images\test-image.jpg" />
-    <Content Include="Assets\JS\index.js" />
     <Content Include="Assets\CSS\PagedList.css" />
+    <Content Include="Assets\JS\index.js" />
+    <Content Include="Assets\themes\base\accordion.css" />
+    <Content Include="Assets\themes\base\all.css" />
+    <Content Include="Assets\themes\base\autocomplete.css" />
+    <Content Include="Assets\themes\base\base.css" />
+    <Content Include="Assets\themes\base\button.css" />
+    <Content Include="Assets\themes\base\core.css" />
+    <Content Include="Assets\themes\base\datepicker.css" />
+    <Content Include="Assets\themes\base\dialog.css" />
+    <Content Include="Assets\themes\base\draggable.css" />
+    <Content Include="Assets\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Assets\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Assets\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Assets\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Assets\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Assets\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Assets\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Assets\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Assets\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Assets\themes\base\jquery-ui.css" />
+    <Content Include="Assets\themes\base\jquery-ui.min.css" />
+    <Content Include="Assets\themes\base\menu.css" />
+    <Content Include="Assets\themes\base\progressbar.css" />
+    <Content Include="Assets\themes\base\resizable.css" />
+    <Content Include="Assets\themes\base\selectable.css" />
+    <Content Include="Assets\themes\base\selectmenu.css" />
+    <Content Include="Assets\themes\base\slider.css" />
+    <Content Include="Assets\themes\base\sortable.css" />
+    <Content Include="Assets\themes\base\spinner.css" />
+    <Content Include="Assets\themes\base\tabs.css" />
+    <Content Include="Assets\themes\base\theme.css" />
+    <Content Include="Assets\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Fonts\.DS_Store" />
-    <Content Include="Assets\Fonts\overpass-regular.otf" />
-    <Content Include="Assets\Fonts\Roboto-Regular.ttf" />
-    <Content Include="Assets\Images\.DS_Store" />
-    <Content Include="Assets\Images\homepageBackground\.DS_Store" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -225,12 +274,21 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Assets\Fonts\.DS_Store" />
+    <Content Include="Assets\Fonts\overpass-regular.otf" />
+    <Content Include="Assets\Fonts\Roboto-Regular.ttf" />
+    <Content Include="Assets\Images\.DS_Store" />
+    <Content Include="Assets\Images\homepageBackground\.DS_Store" />
+    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -242,6 +300,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Project\datepicker.js" />
     <Content Include="Scripts\Project\GoodsReceipt\goodsReceiptCreate.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
@@ -275,9 +334,26 @@
     <Content Include="Views\GoodsReceipt\Detail.cshtml" />
     <Content Include="Views\GoodsReceiptInfo\Create.cshtml" />
     <Content Include="Views\GoodsReceiptInfo\Edit.cshtml" />
+    <Content Include="Views\Book\Create.cshtml" />
+    <Content Include="Views\Book\Edit.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\GoodsReceipt\Print.cshtml" />
+    <Content Include="Views\Shared\_PrintLayout.cshtml" />
+    <Content Include="Views\GoodsIssueInfo\Create.cshtml" />
+    <Content Include="Views\GoodsIssueInfo\Edit.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\GoodsIssue\Create.cshtml" />
+    <Content Include="Views\GoodsIssue\Edit.cshtml" />
+    <Content Include="Views\GoodsIssue\Index.cshtml" />
+    <Content Include="Views\Supplier\Create.cshtml" />
+    <Content Include="Views\Supplier\Edit.cshtml" />
+    <Content Include="Views\Supplier\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

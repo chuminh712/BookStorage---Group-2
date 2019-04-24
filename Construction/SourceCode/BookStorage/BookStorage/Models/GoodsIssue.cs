@@ -21,7 +21,7 @@ namespace BookStorage.Models
 
         public int Insert(GoodsIssue entity)
         {
-            db.GoodsIssues.Add(entity);
+            db.GoodsIssue.Add(entity);
             db.SaveChanges();
             return entity.ID;
         }
@@ -30,7 +30,7 @@ namespace BookStorage.Models
         {
             try
             {
-                var goodsIssue = db.GoodsIssues.Find(entity.ID);
+                var goodsIssue = db.GoodsIssue.Find(entity.ID);
                 goodsIssue.Debit = entity.Debit;
                 goodsIssue.CreatedDate = entity.CreatedDate;
                 goodsIssue.Credit = entity.Credit;
@@ -50,7 +50,7 @@ namespace BookStorage.Models
 
         public IEnumerable<GoodsIssue> ListAllPage(string searchString, int page, int pageSize)
         {
-            IQueryable<GoodsIssue> model = db.GoodsIssues;
+            IQueryable<GoodsIssue> model = db.GoodsIssue;
             if (!string.IsNullOrEmpty(searchString))
             {
                 model = model.Where(x => x.Code.Contains(searchString) || x.ReciverName.Contains(searchString));
@@ -62,8 +62,8 @@ namespace BookStorage.Models
         {
             try
             {
-                var goodsIssue = db.GoodsIssues.Find(id);
-                db.GoodsIssues.Remove(goodsIssue);
+                var goodsIssue = db.GoodsIssue.Find(id);
+                db.GoodsIssue.Remove(goodsIssue);
                 db.SaveChanges();
                 return true;
             }
@@ -75,7 +75,7 @@ namespace BookStorage.Models
 
         public GoodsIssue GetByID(int id)
         {
-            return db.GoodsIssues.Find(id);
+            return db.GoodsIssue.Find(id);
         }
 
         
@@ -104,5 +104,10 @@ namespace BookStorage.Models
         public string OutputReason { get; set; }
 
         public bool Status { get; set; }
+        public int? BookID { get; internal set; }
+        public int? GoodsIssueID { get; internal set; }
+        public int? ReceiptQuantity { get; internal set; }
+        public int? RealQuantity { get; internal set; }
+        public decimal? TotalPrice { get; internal set; }
     }
 }

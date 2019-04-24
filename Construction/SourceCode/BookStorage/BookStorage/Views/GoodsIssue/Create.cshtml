@@ -109,10 +109,10 @@
                         </tr>
                     </thead>
                     <tbody id="goodsReceiptInfoTable">
-                        @if (Model != null && Model.GoodsReceiptInfo != null)
+                        @if (Model != null && Model.GoodsIssueInfo != null)
                         {
                             var sl = 0;
-                            foreach (var item in Model.GoodsReceiptInfo)
+                            foreach (var item in Model.GoodsIssueInfo)
                             {
                                 <tr class="table-content-row">
                                     <td>@(++sl)</td>

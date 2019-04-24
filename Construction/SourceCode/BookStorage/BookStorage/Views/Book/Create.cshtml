@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section scripts {
+@section scripts 
     <script src="~/Scripts/Project/Book/bookCreate.js"></script>
 }
 
@@ -16,9 +16,9 @@
     <div id="create-new-form" class="create-new-book">
         <div id="import-form-info">
             <div>
-                <p>@Html.LabelFor(model => model.BookID)</p>
-                @Html.EditorFor(model => model.BookID, new { htmlAttributes = new { placeholder = "Mã sách" } })
-                @Html.ValidationMessageFor(model => model.BookID, "", new { @class = "text-danger" })
+                <p>@Html.LabelFor(model => model.ID)</p>
+                @Html.EditorFor(model => model.ID, new { htmlAttributes = new { placeholder = "Mã sách" } })
+                @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
             </div>
 
             <div>

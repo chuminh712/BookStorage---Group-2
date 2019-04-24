@@ -152,3 +152,163 @@ E:\Local Repo\chuminh712\BookStorage---Group-2\Construction\SourceCode\BookStora
 E:\Local Repo\chuminh712\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.Mvc.dll
 E:\Local Repo\chuminh712\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.xml
 E:\Local Repo\chuminh712\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.Mvc.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csprojAssemblyReference.cache
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csproj.CoreCompileInputs.cache
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.pdb
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\ApplicationInsights.config
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\BookStorage.dll.config
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\BookStorage.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\BookStorage.pdb
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csc.exe
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csc.exe.config
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csc.rsp
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csi.exe
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csi.rsp
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.AppContext.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.Collections.Immutable.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.IO.FileSystem.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.Reflection.Metadata.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\vbc.exe
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\vbc.exe.config
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\vbc.rsp
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\VBCSCompiler.exe
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\VBCSCompiler.exe.config
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Antlr3.Runtime.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\EntityFramework.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\EntityFramework.SqlServer.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.DependencyCollector.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.Web.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.WindowsServer.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.ApplicationInsights.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.Web.Infrastructure.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Newtonsoft.Json.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.Mvc.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Diagnostics.DiagnosticSource.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Helpers.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Mvc.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Optimization.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Razor.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.Deployment.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.Razor.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\WebGrease.dll
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\EntityFramework.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\EntityFramework.SqlServer.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.Mvc.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Helpers.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Mvc.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Optimization.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Razor.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.Deployment.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.Razor.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Newtonsoft.Json.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Antlr3.Runtime.pdb
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\System.Diagnostics.DiagnosticSource.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.DependencyCollector.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.WindowsServer.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.Web.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csproj.CopyComplete
+E:\Local Repo\BookStorage\Construction\SourceCode\BookStorage\BookStorage\bin\Rotativa.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\ApplicationInsights.config
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\BookStorage.dll.config
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\BookStorage.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\BookStorage.pdb
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csc.exe
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csc.exe.config
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csc.rsp
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csi.exe
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\csi.rsp
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.AppContext.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\vbc.exe
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\vbc.exe.config
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\vbc.rsp
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\VBCSCompiler.exe
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Antlr3.Runtime.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\EntityFramework.SqlServer.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.Web.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Newtonsoft.Json.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.Mvc.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Rotativa.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Helpers.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Mvc.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Optimization.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Razor.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.Razor.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\WebGrease.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\EntityFramework.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\EntityFramework.SqlServer.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\PagedList.Mvc.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Helpers.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Mvc.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Optimization.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.Razor.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Web.WebPages.Razor.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Newtonsoft.Json.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Antlr3.Runtime.pdb
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.AI.Web.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csproj.CopyComplete
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.dll
+C:\Users\Admin\Documents\GitHub\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.pdb

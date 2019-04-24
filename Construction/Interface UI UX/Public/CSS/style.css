@@ -983,7 +983,7 @@ td a:hover {
 
 #company {
     text-align: start;
-    font-size: 1.1vw;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -993,11 +993,11 @@ td a:hover {
 
 #form-info {
     text-align: center;
-    font-size: 0.9vw;
+    font-size: 14px;
 }
 
 #form-info h5 {
-    font-size: 1.05vw;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -1010,11 +1010,11 @@ td a:hover {
 #form-name {
     padding-top: 120px;
     text-align: center;
-    font-size: 1.05vw;
+    font-size: 18px;
 }
 
 #form-name h1 {
-    font-size: 2.4vw;
+    font-size: 45px;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -1024,7 +1024,7 @@ td a:hover {
 }
 
 #form-finance {
-    font-size: 1.05vw;
+    font-size: 18px;
     position: relative;
 }
 
@@ -1039,7 +1039,7 @@ td a:hover {
 }
 
 #form-detail-info {
-    font-size: 1.05vw;
+    font-size: 18px;
     text-align: start;
     padding-top: 50px;
 }
@@ -1070,7 +1070,7 @@ thead tr:nth-child(1) th:nth-child(5) {
 }
 
 table th {
-    font-size: 1vw;
+    font-size: 17px;
     font-weight: bold;
 }
 
@@ -1105,7 +1105,7 @@ table #table-heading th:nth-child(5) {
 }
 
 #payment {
-    font-size: 1vw;
+    font-size: 17px;
 }
 
 #payment p {
@@ -1120,13 +1120,13 @@ table #table-heading th:nth-child(5) {
 #form-day p {
     position: absolute;
     right: 20%;
-    font-size: 0.9vw;
+    font-size: 16px;
 }
 
 #sign {
     display: flex;
     padding-top: 40px;
-    font-size: 0.9vw;
+    font-size: 16px;
     width: 100%;
 }
 
@@ -1137,7 +1137,7 @@ table #table-heading th:nth-child(5) {
 
 #sign div p:first-child {
     font-weight: bold;
-    font-size: 1vw;
+    font-size: 17px;
 }
 
 /* Fonts */
