@@ -349,6 +349,8 @@
     <Content Include="Views\GoodsIssue\Index.cshtml" />
     <Content Include="Views\GoodsIssueInfo\Create.cshtml" />
     <Content Include="Views\GoodsIssueInfo\Edit.cshtml" />
+    <Content Include="Views\GoodsIssue\Print.cshtml" />
+    <Content Include="Views\GoodsIssue\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
