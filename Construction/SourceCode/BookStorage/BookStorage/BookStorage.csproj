@@ -174,10 +174,12 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\GoodsIssueController.cs" />
+    <Compile Include="Controllers\GoodsIssueInfoController.cs" />
     <Compile Include="Controllers\GoodsReceiptController.cs" />
     <Compile Include="Controllers\GoodsReceiptInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -345,6 +347,8 @@
     <Content Include="Views\GoodsIssue\Create.cshtml" />
     <Content Include="Views\GoodsIssue\Edit.cshtml" />
     <Content Include="Views\GoodsIssue\Index.cshtml" />
+    <Content Include="Views\GoodsIssueInfo\Create.cshtml" />
+    <Content Include="Views\GoodsIssueInfo\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
