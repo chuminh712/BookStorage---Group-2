@@ -172,6 +172,8 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\GoodsIssueController.cs" />
     <Compile Include="Controllers\GoodsReceiptController.cs" />
     <Compile Include="Controllers\GoodsReceiptInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -298,6 +300,7 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\Project\datepicker.js" />
+    <Content Include="Scripts\Project\GoodsIssue\goodsIssueCreate.js" />
     <Content Include="Scripts\Project\GoodsReceipt\goodsReceiptCreate.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
@@ -336,6 +339,12 @@
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\GoodsReceipt\Print.cshtml" />
     <Content Include="Views\Shared\_PrintLayout.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\GoodsIssue\Create.cshtml" />
+    <Content Include="Views\GoodsIssue\Edit.cshtml" />
+    <Content Include="Views\GoodsIssue\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
