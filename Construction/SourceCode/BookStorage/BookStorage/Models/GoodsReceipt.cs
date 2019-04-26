@@ -21,10 +21,17 @@
 
         public int Insert(GoodsReceipt entity)
         {
-            foreach(var item in entity.GoodsReceiptInfo)
+            if (entity.GoodsReceiptInfo != null)
             {
-                var book = db.Books.Find(item.BookID);
-                book.Quantity += item.RealQuantity;
+                entity.GoodsReceiptInfo.RemoveAll(x => x.BookID == null);
+                foreach (var item in entity.GoodsReceiptInfo)
+                {
+                    var book = db.Books.Find(item.BookID);
+                    if (book != null)
+                    {
+                        book.Quantity += item.RealQuantity;
+                    }
+                }
             }
             db.GoodsReceipts.Add(entity);
             db.SaveChanges();
