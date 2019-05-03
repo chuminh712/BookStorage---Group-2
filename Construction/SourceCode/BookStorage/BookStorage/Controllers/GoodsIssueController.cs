@@ -4,18 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BookStorage.Models;
+using BookStorage.Common;
+using Rotativa;
+
 
 namespace BookStorage.Controllers
 {
-    public class GoodsIssueController : Controller
+    public class GoodsIssueController : BaseController
     {
         // GET: GoodsIssue
-        public ActionResult Index(string searchString, int page=1, int pageSize = 2)  
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
         {
-                var dao = new GoodsIssue();
-                var model = dao.ListAllPage(searchString, page, pageSize);
-                ViewBag.SearchString = searchString;
-                return View(model);
+            var dao = new GoodsIssue();
+            var model = dao.ListAllPage(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
 
         [HttpGet]
@@ -26,33 +29,35 @@ namespace BookStorage.Controllers
         }
         public void SetViewBag(int? CustomerID = null)
         {
-            var dao = new Supplier();
-            ViewBag.SupplierID = new SelectList(dao.ListAll(), "ID", "Name", CustomerID);
-            
+            var dao = new Customer();
+            ViewBag.CustomerID = new SelectList(dao.ListAll(), "ID", "Name", CustomerID);
+
         }
 
-        public JsonResult GetBookPrice(int id)
+        public JsonResult GetBookPrice(string code)
         {
             var dao = new Book();
-            var bookPrice = dao.GetByID(id).Price;
+            var bookPrice = dao.GetByCode(code).Price;
             return Json(bookPrice);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create (GoodsIssue goodsIssue)
+        public ActionResult Create(GoodsIssue goodsIssue)
         {
             if (ModelState.IsValid)
             {
                 var dao = new GoodsIssue();
                 int id = dao.Insert(goodsIssue);
-                if(id > 0)
+                if (id > 0)
                 {
+                    SetAlert("Thêm hóa đơn thành công", "success");
                     return RedirectToAction("Index", "GoodsIssue");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm hóa đơn không thành công ");
+                    SetAlert("Thêm hóa đơn không thành công", "danger");
+                    return RedirectToAction("Index", "GoodsIssue");
                 }
             }
             SetViewBag();
@@ -78,11 +83,13 @@ namespace BookStorage.Controllers
                 var result = dao.Update(goodsIssue);
                 if (result)
                 {
+                    SetAlert("Cập nhật hóa đơn thành công", "success");
                     return RedirectToAction("Index", "GoodsIssue");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật không thành công");
+                    SetAlert("Cập nhật hóa đơn không thành công", "success");
+                    return RedirectToAction("Index", "GoodsIssue");
                 }
             }
             SetViewBag(goodsIssue.CustomerID);
@@ -94,6 +101,33 @@ namespace BookStorage.Controllers
         {
             new GoodsIssue().Delete(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var dao = new GoodsIssue();
+            var goodsIssue = dao.GetByID(id);
+            return View(goodsIssue);
+        }
+
+        public ActionResult Print(int id)
+        {
+            var dao = new GoodsIssue();
+            var goodsIssue = dao.GetByID(id);
+            return View(goodsIssue);
+        }
+
+        public ActionResult PrintPdf(int id)
+        {
+            var dao = new GoodsReceipt();
+            var goodsReceipt = dao.GetByID(id);
+            ViewBag.TotalPriceText = NumberToText.NumberToTextVN((decimal)goodsReceipt.TotalPrice);
+            return new ViewAsPdf()
+            {
+                FormsAuthenticationCookieName = System.Web.Security.FormsAuthentication.FormsCookieName,
+                ViewName = "Print",
+                Model = goodsReceipt
+            };
         }
 
     }
