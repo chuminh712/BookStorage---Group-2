@@ -10,7 +10,7 @@ namespace BookStorage.Controllers
     public class BookController : Controller
     {
         // GET: Book
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new Book();
             var model = dao.ListAllPage(searchString, page, pageSize);
@@ -21,7 +21,7 @@ namespace BookStorage.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //SetViewBag();
+            SetViewBag();
             return View();
         }
 
@@ -42,7 +42,7 @@ namespace BookStorage.Controllers
                     ModelState.AddModelError("", "Thêm sách không thành công");
                 }
             }
-            //SetViewBag();
+            SetViewBag();
             return View("Index");
         }
 
@@ -51,7 +51,7 @@ namespace BookStorage.Controllers
         {
             var dao = new Book();
             var book = dao.GetByID(id);
-            //SetViewBag(book.ID);
+            SetViewBag(book.BookCategoryID);
             return View(book);
         }
 
@@ -72,7 +72,7 @@ namespace BookStorage.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            //SetViewBag(book.ID);
+            SetViewBag(book.BookCategoryID);
             return View("Index");
         }
 
@@ -83,17 +83,10 @@ namespace BookStorage.Controllers
             return RedirectToAction("Index");
         }
 
-        //public void SetViewBag(int? ID = null)
-        //{
-        //    var dao = new Supplier();
-        //    ViewBag.SupplierID = new SelectList(dao.ListAll(), "ID", "Name", supplierID);
-        //}
-
-        //public JsonResult GetBookPrice(int id)
-        //{
-        //    var dao = new Book();
-        //    var bookPrice = dao.GetByID(id).Price;
-        //    return Json(bookPrice);
-        //}
+        public void SetViewBag(int? categoryID = null, int? unitID = null)
+        {
+            ViewBag.BookCategoryID = new SelectList(new BookCategory().ListAll(), "ID", "Name", categoryID);
+            ViewBag.UnitID = new SelectList(new Unit().ListAll(), "ID", "Name", unitID);
+        }
     }
 }
