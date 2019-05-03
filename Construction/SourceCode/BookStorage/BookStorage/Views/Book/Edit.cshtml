@@ -20,10 +20,10 @@
                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
 
-            <div>
+             <div>
                 <p>@Html.LabelFor(model => model.UnitID)</p>
-                   @Html.EditorFor(model => model.UnitID, new { htmlAttributes = new { placeholder = "UnitID" } })
-                   @Html.ValidationMessageFor(model => model.UnitID, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.UnitID, null, "Đơn vị")
+                @Html.ValidationMessageFor(model => model.UnitID, "", new { @class = "text-danger" })
             </div>
 
             <div>
@@ -47,7 +47,6 @@
             <div>
                 <p>@Html.LabelFor(model => model.Image)</p>
                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-                <input type="file" name="ImageFile" required>
             </div>
 
             <div>
