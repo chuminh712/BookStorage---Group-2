@@ -1,0 +1,67 @@
+﻿@model PagedList.IPagedList<BookStorage.ViewModels.InventoryModel>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "InventoryReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    Thống kê tồn kho
+    <hr />
+}
+
+<div id="main-content">
+    <div id="book-content" class="revenue-content">
+        <div class="content-container">
+            <div class="content-title">Kiểm tra tồn kho</div>
+            <div class="content-table">
+                @using (Html.BeginForm("InventoryReport", "Report", FormMethod.Get))
+                {
+                    <div class="interactive">
+                        <div class="search-content">
+                            <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                }
+                <div class="table-container">
+                    <table>
+                        <!-- Start Title Row -->
+                        <tr class="table-title-row">
+                            <th>Tên sách</th>
+                            <th>Ảnh</th>
+                            <th>Mã sách</th>
+                            <th>Đơn vị</th>
+                            <th>Nhà xuất bản</th>
+                            <th>Số lượng còn</th>
+                            <th>Số lượng nhập</th>
+                            <th>Số lượng xuất</th>
+                        </tr>
+                        <!-- End Title Row -->
+                        <!-- Start Content Row -->
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr class="table-content-row">
+                                    <td>@item.BookName</td>
+                                    <td>@item.Image</td>
+                                    <td>@item.Code</td>
+                                    <td>@item.Unit</td>
+                                    <td>@item.Publisher</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.GoodsReceiptQuantity</td>
+                                    <td>@item.GoodsIssueQuantity</td>
+                                </tr>
+                            }
+                        }
+                        <!-- End Content Row -->
+                    </table>
+                </div>
+                @Html.PagedListPager(Model, page => Url.Action("InventoryReport", new { page, @searchString = ViewBag.SearchString }))
+            </div>
+        </div>
+    </div>
+</div>
+
