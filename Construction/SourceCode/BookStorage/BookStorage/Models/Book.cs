@@ -8,6 +8,7 @@ namespace BookStorage.Models
     using PagedList;
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web;
 
     [Table("Book")]
     public partial class Book
@@ -19,50 +20,9 @@ namespace BookStorage.Models
             db = new BookStorageDbContext();
         }
 
-        public Book GetByID(int id)
-        {
-            return db.Books.Find(id);
-        }
-
-        public Book GetByCode(string code)
-        {
-            return db.Books.Where(x => x.Code == code).FirstOrDefault();
-        }
-
-        public int ID { get; set; }
-
-        [StringLength(500)]
-        public string Name { get; set; }
-
-        public int? UnitID { get; set; }
-        public virtual Unit Unit { get; set; }
-
-        [StringLength(500)]
-        public string Author { get; set; }
-
-        public int? BookCategoryID { get; set; }
-
-        [StringLength(200)]
-        public string Code { get; set; }
-
-        [StringLength(500)]
-        public string Image { get; set; }
-
-        public decimal? Price { get; set; }
-
-        [StringLength(500)]
-        public string Publisher { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? CreatedDate { get; set; }
-
-        public int? Quantity { get; set; }
-
-        public bool Status { get; set; }
-
-
         public int Insert(Book entity)
         {
+            entity.CreatedDate = DateTime.Today;
             db.Books.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -74,7 +34,6 @@ namespace BookStorage.Models
             {
                 var book = db.Books.Find(entity.ID);
                 book.Name = entity.Name;
-                book.ID = entity.ID;
                 book.UnitID = entity.UnitID;
                 book.Author = entity.Author;
                 book.BookCategoryID = entity.BookCategoryID;
@@ -82,7 +41,6 @@ namespace BookStorage.Models
                 book.Image = entity.Image;
                 book.Price = entity.Price;
                 book.Publisher = entity.Publisher;
-                book.CreatedDate = entity.CreatedDate;
                 book.Quantity = entity.Quantity;
                 book.Status = entity.Status;
                 db.SaveChanges();
@@ -118,5 +76,53 @@ namespace BookStorage.Models
                 return false;
             }
         }
+
+        public Book GetByID(int id)
+        {
+            return db.Books.Find(id);
+        }
+
+        public Book GetByCode(string code)
+        {
+            return db.Books.Where(x => x.Code == code).FirstOrDefault();
+        }
+
+        public List<Book> ListAll()
+        {
+            return db.Books.Where(x => x.Status == true).ToList();
+        }
+
+        public int ID { get; set; }
+
+        [StringLength(500)]
+        public string Name { get; set; }
+
+        public int? UnitID { get; set; }
+        public virtual Unit Unit { get; set; }
+
+        [StringLength(500)]
+        public string Author { get; set; }
+
+        public int? BookCategoryID { get; set; }
+        public virtual BookCategory BookCategory{ get; set; }
+
+        [StringLength(200)]
+        public string Code { get; set; }
+
+        [StringLength(500)]
+        public string Image { get; set; }
+
+        public decimal? Price { get; set; }
+
+        [StringLength(500)]
+        public string Publisher { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? CreatedDate { get; set; }
+
+        public int? Quantity { get; set; }
+
+        public bool Status { get; set; }
+
     }
 }
