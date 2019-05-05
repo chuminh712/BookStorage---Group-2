@@ -1,10 +1,29 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+@model BookStorage.Models.BookCategory
 
-</body>
-</html>
+@{
+
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "BookCategory", FormMethod.Post))
+{
+
+    <div class="create-new-title">Chỉnh sửa thông tin danh mục sách</div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div id="create-new-form">
+        <div class="create-new-add">
+            @Html.HiddenFor(model => model.ID)
+            <div>
+                <p>@Html.LabelFor(model => model.Name)</p>
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Tên sách" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="create-new-confirm">
+            <button value="Create" type="submit"><i class="fas fa-plus-circle"></i>Lưu</button>
+            <button onclick="history.back(-1)" type="button"><i class="fas fa-ban"></i>Trở về</button>
+        </div>
+    </div>
+}
