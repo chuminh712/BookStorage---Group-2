@@ -27,5 +27,50 @@ namespace BookStorage.Models
         [StringLength(500)]
         public string Name { get; set; }
 
+        [Column(TypeName = "date")]
+        public DateTime? CreatedDate { get; set; }
+
+        public int Insert(BookCategory entity)
+        {
+            entity.CreatedDate = DateTime.Today;
+            db.BookCategories.Add(entity);
+            db.SaveChanges();
+            return entity.ID;
+        }
+
+        public BookCategory GetByID(int id)
+        {
+            return db.BookCategories.Find(id);
+        }
+
+        public bool Update(BookCategory entity)
+        {
+            try
+            {
+                var book_category = db.BookCategories.Find(entity.ID);
+                book_category.Name = entity.Name;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                var book_category = db.BookCategories.Find(id);
+                db.BookCategories.Remove(book_category);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
