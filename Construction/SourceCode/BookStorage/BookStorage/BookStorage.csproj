@@ -255,6 +255,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\InventoryModel.cs" />
     <Compile Include="ViewModels\LoginModel.cs" />
+    <Compile Include="ViewModels\ProfitModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\CSS\style.css" />
@@ -1543,6 +1544,7 @@
     <Content Include="Views\Supplier\Index.cshtml" />
     <Content Include="Views\Report\InventoryReport.cshtml" />
     <Content Include="Views\BookCategory\Index.cshtml" />
+    <Content Include="Views\Report\ProfitReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
