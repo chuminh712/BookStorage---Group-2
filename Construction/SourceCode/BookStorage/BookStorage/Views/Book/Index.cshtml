@@ -21,7 +21,7 @@
                     <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
                     <i class="fas fa-search"></i>
                 </div>
-                <button class="create-new-button" onclick="location.href='Create'" type="button">
+                <button class="create-new-button" onclick="location.href='/Book/Create'" type="button">
                     <i class="fas fa-plus-circle"></i>
                     Tại mới
                 </button>
@@ -31,11 +31,17 @@
             <table>
                 <!-- Start Title Row -->
                 <tr class="table-title-row">
-                    <th>Mã sách</th>
-                    <th>Tên sách</th>
+                    <th>Tiêu đề</th>
+                    <th>Trang bìa</th>
+                    <th>Thể loại</th>
                     <th>Tác giả</th>
+                    <th>Mã sách</th>
+                    <th>Đơn vị</th>
+                    <th>Giá tiền</th>
+                    <th>Số lượng</th>
+                    <th>Người đăng</th>
                     <th>Ngày tạo</th>
-                    <th>Nhà xuất bản</th>
+                    <th>Trạng thái</th>
                     <th>Thao tác</th>
                 </tr>
                 <!-- End Title Row -->
@@ -44,21 +50,42 @@
                 {
                     foreach (var item in Model)
                     {
-                        <tr class="table-content-row" id="row_@item.ID">
-                            <td>@item.Name</td>
-                            <td>@item.Author</td>
-                            <td>@item.CreatedDate</td>
-                            <td>@item.Publisher</td>
-                            <td>
-                                @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
-                                @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
-                                   {
-                                       Confirm = "Bạn có muốn xóa bản ghi này?",
-                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
-                                       HttpMethod = "Delete"
-                                   }, new { @class = "fas fa-trash-alt" })
-                            </td>
-                        </tr>
+                <tr class="table-content-row" id="row_@item.ID">
+                    <td>@item.Name</td>
+                    <td>@item.Image</td>
+                    @if (item.BookCategory != null)
+                    {
+                        <td>@item.BookCategory.Name</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    <td>@item.Author</td>
+                    <td>@item.Code</td>
+                    @if (item.Unit != null)
+                    {
+                        <td>@item.Unit.Name</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    <td>@item.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Publisher</td>
+                    <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                    <td>@item.Status</td>
+                    <td>
+                        @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
+                        @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                           {
+                               Confirm = "Bạn có muốn xóa bản ghi này?",
+                               OnComplete = "$('#row_" + @item.ID + "').remove()",
+                               HttpMethod = "Delete"
+                           }, new { @class = "fas fa-trash-alt" })
+                    </td>
+                </tr>
                     }
                 }
                 <!-- End Content Row -->
