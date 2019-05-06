@@ -12,7 +12,7 @@ namespace BookStorage.Controllers
         // GET: BookCategory
         public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
-            var dao = new Book();
+            var dao = new BookCategory();
             var model = dao.ListAllPage(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);

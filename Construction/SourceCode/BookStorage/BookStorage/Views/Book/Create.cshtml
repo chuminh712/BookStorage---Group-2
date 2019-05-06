@@ -5,17 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section jsFooter{
-    <script>
-        $('#btnSelectImage').on('click', function (e) {
-            e.preventDefault();
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (url) {
-                $('#txtImage').val(url);
-            };
-            finder.popup();
-        })
-    </script>
+@section scripts{
+    <script src="~/Assets/JS/plugins/ck-finder.js"></script>
 }
 
 @using (Html.BeginForm("Create", "Book", FormMethod.Post))
@@ -56,8 +47,8 @@
 
             <div>
                 <p>@Html.LabelFor(model => model.Image)</p>
-                @Html.TextBoxFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "txtImage" }, id = "txtImage" })
-                <a id="btnSelectImage" href="#">Chọn ảnh</a>
+                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @id = "txtImage" }, id = "txtImage" })
+                <a id="btnSelectImage" href="#">Chọn</a>
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
             </div>
 
@@ -88,6 +79,6 @@
     </div>
     <div class="create-new-confirm">
         <button value="Create" type="submit"><i class="fas fa-plus-circle"></i>Tạo mới</button>
-        <button onclick="history.back(-1)" type="button"><i class="fas fa-ban"></i>Trở về</button>
+        <button onclick="location.href='/Book/Index'" type="button"><i class="fas fa-ban"></i>Trở về</button>
     </div>
 }

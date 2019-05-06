@@ -13,7 +13,7 @@ namespace BookStorage.Controllers
     public class GoodsIssueController : BaseController
     {
         // GET: GoodsIssue
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new GoodsIssue();
             var model = dao.ListAllPage(searchString, page, pageSize);
