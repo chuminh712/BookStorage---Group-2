@@ -98,7 +98,19 @@
             return db.GoodsIssues.Find(id);
         }
 
-
+        public List<GoodsIssue> GetGoodsIssueList(DateTime fromDate, DateTime toDate)
+        {
+            var goodsIssueList = db.GoodsIssues.AsQueryable();
+            if (fromDate != null)
+            {
+                goodsIssueList = goodsIssueList.Where(x => x.CreatedDate >= fromDate).AsQueryable();
+            }
+            if (toDate != null)
+            {
+                goodsIssueList = goodsIssueList.Where(x => x.CreatedDate <= toDate).AsQueryable();
+            }
+            return goodsIssueList.ToList();
+        }
 
         public int ID { get; set; }
         public virtual List<GoodsIssueInfo> GoodsIssueInfo { get; set; }
