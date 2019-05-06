@@ -494,14 +494,6 @@ E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookSto
 E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\vbc.rsp
 E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\VBCSCompiler.exe
 E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\roslyn\VBCSCompiler.exe.config
-E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\CKSource.CKFinder.Connector.Config.dll
-E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\CKSource.CKFinder.Connector.Core.dll
-E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\CKSource.CKFinder.Connector.KeyValue.FileSystem.dll
-E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\CKSource.FileSystem.dll
-E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\Owin.dll
-E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Net.Http.Extensions.dll
-E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Net.Http.Formatting.dll
-E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Net.Http.Primitives.dll
 E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Security.Cryptography.Encoding.dll
 E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\System.Security.Cryptography.Primitives.dll
 E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csprojAssemblyReference.cache
@@ -575,3 +567,5 @@ C:\Users\Hip\Documents\BookStorage---Group-2\Construction\SourceCode\BookStorage
 C:\Users\Hip\Documents\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.csproj.CopyComplete
 C:\Users\Hip\Documents\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.dll
 C:\Users\Hip\Documents\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\obj\Debug\BookStorage.pdb
+E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\CKFinder.dll
+E:\Github Repo\BookStorage---Group-2\Construction\SourceCode\BookStorage\BookStorage\bin\CKFinder.pdb

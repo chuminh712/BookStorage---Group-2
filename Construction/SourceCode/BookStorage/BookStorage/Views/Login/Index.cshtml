@@ -28,10 +28,6 @@
                         @Html.ValidationSummary(false, "");
                         @Html.TextBoxFor(model => model.Username, new { @placeholder = "Tên tài khoản", @autofocus = "autofocus" })
                         @Html.PasswordFor(model => model.Password, new { @id = "password-input", @placeholder = "Mật khẩu" })
-                        <div class="password-display">
-                            <input type="checkbox" onclick="showPassword()">
-                            <p>Hiển thị mật khẩu</p>
-                        </div>
                         <button type="submit" name="submit">Đăng nhập</button>
                     }
                 </div>

@@ -1,14 +1,17 @@
-/*
- Copyright (c) 2007-2019, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.html or https://ckeditor.com/sales/license/ckfinder
- */
+﻿/*
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see license.txt or http://cksource.com/ckfinder/license
+*/
 
-var config = {};
+CKFinder.customConfig = function( config )
+{
+	// Define changes to default configuration here.
+	// For the list of available options, check:
+	// http://docs.cksource.com/ckfinder_2.x_api/symbols/CKFinder.config.html
 
-// Set your configuration options below.
+	// Sample configuration options:
+	// config.uiColor = '#BDE31E';
+	// config.language = 'fr';
+	// config.removePlugins = 'basket';
 
-// Examples:
-// config.language = 'pl';
-// config.skin = 'jquery-mobile';
-
-CKFinder.define( config );
+};
