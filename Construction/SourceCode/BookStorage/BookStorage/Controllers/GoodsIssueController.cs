@@ -37,7 +37,7 @@ namespace BookStorage.Controllers
         public JsonResult GetBookPrice(string code)
         {
             var dao = new Book();
-            var bookPrice = dao.GetByCode(code).Price;
+                var bookPrice = dao.GetByCode(code).Price;
             return Json(bookPrice);
         }
 
@@ -45,7 +45,7 @@ namespace BookStorage.Controllers
         [ValidateInput(false)]
         public ActionResult Create(GoodsIssue goodsIssue)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && goodsIssue.GoodsIssueInfo.Count > 0)
             {
                 var dao = new GoodsIssue();
                 int id = dao.Insert(goodsIssue);
@@ -119,16 +119,26 @@ namespace BookStorage.Controllers
 
         public ActionResult PrintPdf(int id)
         {
-            var dao = new GoodsReceipt();
-            var goodsReceipt = dao.GetByID(id);
-            ViewBag.TotalPriceText = NumberToText.NumberToTextVN((decimal)goodsReceipt.TotalPrice);
+            var dao = new GoodsIssue();
+            var goodsIssue = dao.GetByID(id);
+            ViewBag.TotalPriceText = NumberToText.NumberToTextVN((decimal)goodsIssue.TotalPrice);
             return new ViewAsPdf()
             {
                 FormsAuthenticationCookieName = System.Web.Security.FormsAuthentication.FormsCookieName,
                 ViewName = "Print",
-                Model = goodsReceipt
+                Model = goodsIssue
             };
         }
 
+        public JsonResult GetBookID(string code)
+        {
+            var dao = new Book();
+            var bookID = 0;
+            if (dao.GetByCode(code) != null)
+            {
+                bookID = dao.GetByCode(code).ID;
+            }
+            return Json(bookID);
+        }
     }
 }
