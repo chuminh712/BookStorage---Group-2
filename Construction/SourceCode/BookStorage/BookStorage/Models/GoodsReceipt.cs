@@ -97,6 +97,20 @@
             return db.GoodsReceipts.Find(id);
         }
 
+        public List<GoodsReceipt> GetGoodsReceiptList(DateTime fromDate, DateTime toDate)
+        {
+            var goodsReceiptList = db.GoodsReceipts.AsQueryable();
+            if (fromDate != null)
+            {
+                goodsReceiptList = goodsReceiptList.Where(x => x.CreatedDate >= fromDate).AsQueryable();
+            }
+            if (toDate != null)
+            {
+                goodsReceiptList = goodsReceiptList.Where(x => x.CreatedDate <= toDate).AsQueryable();
+            }
+            return goodsReceiptList.ToList();
+        }
+
         public int ID { get; set; }
         public virtual List<GoodsReceiptInfo> GoodsReceiptInfo { get; set; }
 
@@ -124,7 +138,7 @@
         [Display(Name = "Mã phiếu nhập")]
         public string Code { get; set; }
 
-        [Display(Name = "Tổng số tiền")]
+        [Display(Name = "Tổng tiền")]
         [DisplayFormat(DataFormatString = "#.##0")]
         public decimal? TotalPrice { get; set; }
 

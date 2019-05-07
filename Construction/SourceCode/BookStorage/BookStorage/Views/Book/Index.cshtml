@@ -23,7 +23,7 @@
                 </div>
                 <button class="create-new-button" onclick="location.href='/Book/Create'" type="button">
                     <i class="fas fa-plus-circle"></i>
-                    Tại mới
+                    Tạo mới
                 </button>
             </div>
         }
@@ -52,7 +52,7 @@
                     {
                 <tr class="table-content-row" id="row_@item.ID">
                     <td>@item.Name</td>
-                    <td>@item.Image</td>
+                    <td class="img-c"><img src="@item.Image" /></td>
                     @if (item.BookCategory != null)
                     {
                         <td>@item.BookCategory.Name</td>

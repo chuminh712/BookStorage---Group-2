@@ -3,7 +3,7 @@
 });
 
 $("#bookCode").on("change", function () {
-    var code = $("#bookCode").val(); s
+    var code = $("#bookCode").val(); 
     $.ajax({
         url: "/GoodsIssue/GetBookPrice",
         type: "post",
@@ -61,7 +61,6 @@ function AddRow() {
 }
 
 function GetSelectedBook() {
-
     var bookCode = $("#bookCode").val();
     var bookID = $("#bookID").val();
     var receiptQuantity = $("#receiptQuantity").val();

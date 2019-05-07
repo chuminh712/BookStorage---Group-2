@@ -68,10 +68,11 @@
 </div>
 <div id="book-info">
     <div class="create-new-add">
+        @Html.Hidden("bookID")
         <div>
-            <p>@Html.Label("bookID", "Mã sách")</p>
-            @Html.Editor("bookID", new { htmlAttributes = new { placeholder = "Mã sách" } })
-            @Html.ValidationMessage("bookID", "", new { @class = "text-danger" })
+            <p>@Html.Label("bookCode", "Mã sách")</p>
+            @Html.Editor("bookCode", new { htmlAttributes = new { placeholder = "Mã sách" } })
+            @Html.ValidationMessage("bookCode", "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -119,6 +120,6 @@
 </div>
 <div class="create-new-confirm">
     <button value="Create" type="submit"><i class="fas fa-plus-circle"></i>Tạo mới</button>
-    <button onclick="history.back(-1)" type="button"><i class="fas fa-ban"></i>Trở về</button>
+    <button onclick="location.href='/GoodsIssue/Index'" type="button"><i class="fas fa-ban"></i>Trở về</button>
 </div>
 }

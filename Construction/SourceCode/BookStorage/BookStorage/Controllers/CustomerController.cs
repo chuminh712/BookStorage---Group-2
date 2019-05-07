@@ -7,10 +7,10 @@ using System.Web.Mvc;
 
 namespace BookStorage.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomerController : BaseController
     {
         // GET: Customer
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new Customer();
             var model = dao.ListAllPage(searchString, page, pageSize);

@@ -21,7 +21,7 @@
                     <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
                     <i class="fas fa-search"></i>
                 </div>
-                <button class="create-new-button" onclick="location.href='Create'" type="button">
+                <button class="create-new-button" onclick="location.href='/GoodsIssue/Create'" type="button">
                     <i class="fas fa-plus-circle"></i>
                     Thêm mới
                 </button>
@@ -38,6 +38,7 @@
                     <th>Nợ</th>
                     <th>Có</th>
                     <th>Lí do xuất</th>
+                    <th>Thao tác</th>
                 </tr>
                 <!-- End Title Row -->
                 <!-- Start Content Row -->
@@ -49,7 +50,14 @@
                             <td>@item.Code</td>
                             <td>@item.ReciverName</td>
                             <td>@item.CreatedDate</td>
-                            <td>@item.CustomerID</td>
+                            @if (item.Customer != null)
+                            {
+                                <td>@item.Customer.Name</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
                             <td>@item.Debit</td>
                             <td>@item.Credit</td>
                             <td>@item.OutputReason</td>
@@ -61,6 +69,7 @@
                                        OnComplete = "$('#row_" + @item.ID + "').remove()",
                                        HttpMethod = "Delete"
                                    }, new { @class = "fas fa-trash-alt" })
+                                @Html.ActionLink(" Chi tiết", "Detail", new { id = item.ID }, new { @class = "fas fa-info-circle" })
                             </td>
                         </tr>
                     }

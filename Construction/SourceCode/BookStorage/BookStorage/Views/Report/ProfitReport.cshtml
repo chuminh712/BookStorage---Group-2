@@ -1,0 +1,116 @@
+﻿@model BookStorage.ViewModels.ProfitModel
+
+@{
+    ViewBag.Title = "ProfitReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script src="~/Scripts/Project/datepicker.js"></script>
+}
+
+<div id="main-content">
+    <div id="book-content" class="revenue-content">
+        <h1>Thống kê doanh thu</h1>
+        <hr>
+        <div class="content-container">
+            <div class="content-title">Kiểm tra doanh thu</div>
+            <div class="content-table">
+                @using (Html.BeginForm("ProfitReport", "Report", FormMethod.Post))
+                {
+                    <div class="interactive">
+                        @Html.Editor("fromDate", new { htmlAttributes = new { @class = "datepicker", placeholder = "Từ ngày" } })
+                        @Html.Editor("toDate", new { htmlAttributes = new { @class = "datepicker", placeholder = "Đến ngày" } })
+                        <input type="submit" name="Check" id="ShowButton" value="Kiểm tra" class="create-new-button" />
+                    </div>
+                }
+                <div class="table-container">
+                    <div class="import-info">
+                        <div class="form-title"><button>Phiếu nhập</button></div>
+                        <div class="table2-container">
+                            <table>
+                                <!-- Start Title Row -->
+                                <tr class="table-title-row">
+                                    <th>Mã phiếu</th>
+                                    <th>Nhà cung cấp</th>
+                                    <th>Ngày nhập</th>
+                                    <th>Giá tiền (VND)</th>
+                                </tr>
+                                <!-- End Title Row -->
+                                <!-- Start Content Row -->
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model.GoodsReceipt)
+                                    {
+                                        <tr class="table-content-row">
+                                            <td>@item.Code</td>
+                                            @if (item.Supplier != null)
+                                            {
+                                                <td>@item.Supplier.Name</td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
+                                                <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                                                <td>@String.Format("{0:#,##0}", item.TotalPrice)</td>
+                                        </tr>
+                                    }
+                                }
+                                <!-- End Content Row -->
+                            </table>
+                        </div>
+                        <div class="money">
+                            <p>Tổng tiền: </p>
+                            <p>@Html.DisplayFor(model => model.GoodsReceiptTotal)</p>
+                        </div>
+                    </div>
+                    <div class="export-info">
+                        <div class="form-title"><button>Phiếu xuất</button></div>
+                        <div class="table2-container">
+                            <table>
+                                <!-- Start Title Row -->
+                                <tr class="table-title-row">
+                                    <th>Mã phiếu</th>
+                                    <th>Nhà cung cấp</th>
+                                    <th>Ngày nhập</th>
+                                    <th>Giá tiền (VND)</th>
+                                </tr>
+                                <!-- End Title Row -->
+                                <!-- Start Content Row -->
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model.GoodsIssue)
+                                    {
+                                <tr class="table-content-row">
+                                    <td>@item.Code</td>
+                                    @if (item.Customer != null)
+                                    {
+                                        <td>@item.Customer.Name</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                                    <td>@String.Format("{0:#,##0}", item.TotalPrice)</td>
+                                </tr>
+                                    }
+                                }
+                                <!-- End Content Row -->
+                            </table>
+                        </div>
+                        <div class="money">
+                            <p>Tổng tiền: </p>
+                            <p>@Html.DisplayFor(model => model.GoodsIssueTotal)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-revenue">
+                    <p>Doanh thu: </p>
+                    <p>@Html.DisplayFor(model => model.TotalProfit)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
