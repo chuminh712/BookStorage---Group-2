@@ -1,4 +1,4 @@
-namespace BookStorage.Models
+﻿namespace BookStorage.Models
 {
     using System;
     using System.Collections.Generic;
@@ -92,11 +92,14 @@ namespace BookStorage.Models
         public int? GoodsReceiptID { get; set; }
         public virtual GoodsReceipt GoodsReceipt { get; set; }
 
+        [Display(Name = "Số lượng theo chứng từ")]
         public int? ReceiptQuantity { get; set; }
 
+        [Display(Name = "Số lượng theo thực nhập")]
         public int? RealQuantity { get; set; }
 
         [DisplayFormat(DataFormatString = "#.##0")]
+        [Display(Name = "Tổng tiền")]
         public decimal? BookTotalPrice { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using BookStorage.Models;
 
 namespace BookStorage.Controllers
 {
-    public class BookCategoryController : Controller
+    public class BookCategoryController : BaseController
     {
         // GET: BookCategory
         public ActionResult Index(string searchString, int page = 1, int pageSize = 5)

@@ -68,10 +68,11 @@
 </div>
 <div id="book-info">
     <div class="create-new-add">
+        @Html.Hidden("bookID")
         <div>
-            <p>@Html.Label("bookID", "Mã sách")</p>
-            @Html.Editor("bookID", new { htmlAttributes = new { placeholder = "Mã sách" } })
-            @Html.ValidationMessage("bookID", "", new { @class = "text-danger" })
+            <p>@Html.Label("bookCode", "Mã sách")</p>
+            @Html.Editor("bookCode", new { htmlAttributes = new { placeholder = "Mã sách" } })
+            @Html.ValidationMessage("bookCode", "", new { @class = "text-danger" })
         </div>
 
         <div>

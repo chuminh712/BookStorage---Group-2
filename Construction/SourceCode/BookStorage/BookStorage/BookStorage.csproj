@@ -1090,6 +1090,17 @@
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\TecPrime.AssemblyClassFinder.Core.dll" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="Data\images\Book\Bắt trẻ đồng xanh.jpg" />
+    <Content Include="Data\images\Book\Cây Chuối Non Đi Giày Xanh.png" />
+    <Content Include="Data\images\Book\Cởi Trói Linh Hồn%281%29.jpg" />
+    <Content Include="Data\images\Book\Gọi Em Bằng Tên Anh.jfif" />
+    <Content Include="Data\images\Book\Nguồn Cội – Origin.jpg" />
+    <Content Include="Data\images\Book\Nhà giả kim.jpg" />
+    <Content Include="Data\images\Book\Suối nguồn.jpg" />
+    <Content Include="Data\images\Book\Tôi tài giỏi, bạn cũng thế.png" />
+    <Content Include="Data\images\Book\Xứ Tuyết.jpg" />
+    <Content Include="Data\images\Book\Đắc nhân tâm%281%29.jpg" />
+    <Content Include="Data\images\Book\Đắc nhân tâm.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">

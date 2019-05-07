@@ -82,19 +82,19 @@
                                 {
                                     foreach (var item in Model.GoodsIssue)
                                     {
-                                        <tr class="table-content-row">
-                                            <td>@item.Code</td>
-                                            @if (item.Customer != null)
-                                            {
-                                                <td>@item.Customer.Name</td>
-                                            }
-                                            else
-                                            {
-                                                <td></td>
-                                            }
-                                            <td>@item.CreatedDate</td>
-                                            <td>@item.TotalPrice</td>
-                                        </tr>
+                                <tr class="table-content-row">
+                                    <td>@item.Code</td>
+                                    @if (item.Customer != null)
+                                    {
+                                        <td>@item.Customer.Name</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                                    <td>@String.Format("{0:#,##0}", item.TotalPrice)</td>
+                                </tr>
                                     }
                                 }
                                 <!-- End Content Row -->
