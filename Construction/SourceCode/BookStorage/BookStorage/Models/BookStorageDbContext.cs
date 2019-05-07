@@ -58,7 +58,7 @@ namespace BookStorage.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<GoodsIssueInfo>()
-                .Property(e => e.TotalPrice)
+                .Property(e => e.BookTotalPrice)
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<GoodsReceipt>()

@@ -29,7 +29,7 @@ namespace BookStorage.Controllers
         [ValidateInput(false)]
         public ActionResult Create(GoodsReceipt goodsReceipt)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && goodsReceipt.GoodsReceiptInfo.Count > 0)
             {
                 var dao = new GoodsReceipt();
                 int id = dao.Insert(goodsReceipt);

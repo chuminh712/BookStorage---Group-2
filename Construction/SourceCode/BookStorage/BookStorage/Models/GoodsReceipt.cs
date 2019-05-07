@@ -138,7 +138,7 @@
         [Display(Name = "Mã phiếu nhập")]
         public string Code { get; set; }
 
-        [Display(Name = "Tổng số tiền")]
+        [Display(Name = "Tổng tiền")]
         [DisplayFormat(DataFormatString = "#.##0")]
         public decimal? TotalPrice { get; set; }
 

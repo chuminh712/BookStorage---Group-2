@@ -1,4 +1,4 @@
-namespace BookStorage.Models
+﻿namespace BookStorage.Models
 {
     using PagedList;
     using System;
@@ -26,6 +26,7 @@ namespace BookStorage.Models
         public int ID { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Tên danh mục")]
         public string Name { get; set; }
 
         public int Insert(BookCategory entity)

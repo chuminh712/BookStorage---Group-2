@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace BookStorage.Controllers
 {
-    public class ReportController : Controller
+    public class ReportController : BaseController
     {
         // GET: Inventory
         public ActionResult InventoryReport(string searchString)
