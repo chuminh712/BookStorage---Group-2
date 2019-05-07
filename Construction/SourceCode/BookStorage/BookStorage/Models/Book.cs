@@ -114,12 +114,12 @@
         [Display(Name = "Mã sách")]
         public string Code { get; set; }
 
+        [Display(Name = "Giá tiền")]
+        public decimal? Price { get; set; }
+
         [StringLength(500)]
         [Display(Name = "Hình ảnh")]
         public string Image { get; set; }
-
-        [Display(Name = "Giá tiền")]
-        public decimal? Price { get; set; }
 
         [StringLength(500)]
         [Display(Name = "Nhà xuất bản")]
