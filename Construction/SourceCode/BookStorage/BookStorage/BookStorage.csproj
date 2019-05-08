@@ -103,6 +103,11 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
@@ -228,6 +233,7 @@
     <Compile Include="Controllers\BookCategoryController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\ExcelController.cs" />
     <Compile Include="Controllers\GoodsIssueController.cs" />
     <Compile Include="Controllers\GoodsIssueInfoController.cs" />
     <Compile Include="Controllers\GoodsReceiptController.cs" />
@@ -986,6 +992,7 @@
     <Content Include="bin\BookStorage.dll" />
     <Content Include="bin\BookStorage.pdb" />
     <Content Include="bin\CKFinder.dll" />
+    <Content Include="bin\CKFinder.pdb" />
     <Content Include="bin\CKSource.CKFinder.Connector.Config.dll" />
     <Content Include="bin\CKSource.CKFinder.Connector.Core.dll" />
     <Content Include="bin\CKSource.CKFinder.Connector.Host.Owin.dll" />
@@ -1014,9 +1021,11 @@
     <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.xml" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Office.Interop.Excel.dll" />
     <Content Include="bin\Microsoft.Owin.dll" />
     <Content Include="bin\Microsoft.Owin.xml" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\mscorlib.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
     <Content Include="bin\Newtonsoft.Json.xml" />
     <Content Include="bin\Owin.dll" />
@@ -1226,9 +1235,12 @@
     <Content Include="Views\Report\ProfitReport.cshtml" />
     <Content Include="Views\BookCategory\Create.cshtml" />
     <Content Include="Views\BookCategory\Edit.cshtml" />
+    <Content Include="Views\Excel\ImportIndex.cshtml" />
+    <Content Include="Views\Excel\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\" />
     <Folder Include="Data\files\" />
     <Folder Include="Data\flash\" />
     <Folder Include="Data\images\ada\" />
