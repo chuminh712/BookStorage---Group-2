@@ -3,7 +3,7 @@
 });
 
 $("#bookCode").on("change", function () {
-    var code = $("#bookCode").val(); 
+    var code = $("#bookCode").val();
     $.ajax({
         url: "/GoodsIssue/GetBookPrice",
         type: "post",
@@ -41,7 +41,7 @@ function AddRow() {
     var selectedBook = GetSelectedBook();
     var index = $("#goodsIssueInfoTable").children("tr").length;
     var sl = index;
-    var bookID = "<td style='display:none'> <input type='hidden' id='bookID" + index + "' name='GoodsIssuetInfo[" + index + "].bookID' value='" + selectedBook.bookID + "'/>" + selectedBook.bookID + "</td>";
+    var bookID = "<td style='display:none'> <input type='hidden' id='bookID" + index + "' name='GoodsIssueInfo[" + index + "].bookID' value='" + selectedBook.bookID + "'/>" + selectedBook.bookID + "</td>";
     var serialCell = "<td>" + (++sl) + "</td>";
     var bookCodeCell = "<td> <input type='hidden' id='bookCode" + index + "' name='GoodsIssueInfo[" + index + "].bookCode' value='" + selectedBook.bookCode + "' />" + selectedBook.bookCode + " </td>";
     var receiptQuantityCell = "<td> <input type='hidden' id='receiptQuantity" + index + "' name='GoodsIssueInfo[" + index + "].receiptQuantity' value='" + selectedBook.receiptQuantity + "' />" + selectedBook.receiptQuantity + " </td>";
@@ -52,6 +52,7 @@ function AddRow() {
     var createNewRow = "<tr id='delRow_" + index + "'> " + serialCell + bookID + bookCodeCell + receiptQuantityCell + realQuantityCell + priceCell + totalPriceCell + actionCell + " </tr>";
 
     $("#goodsIssueInfoTable").append(createNewRow);
+    $("#bookID").val("");
     $("#bookCode").val("");
     $("#receiptQuantity").val("");
     $("#realQuantity").val("");
@@ -89,7 +90,7 @@ function receiptTotalPrice() {
         $("#receiptTotalPrice").val(0);
     }
     else {
-        $("#goodsIssueInfoTable tr ").each(function (index, value) {
+        $("#goodsIssueInfoTable tr ").each(function (index) {
             var total = parseFloat((document.getElementById("bookTotalPrice" + index).value));
             sumOfTotal = sumOfTotal + total;
             $("#receiptTotalPrice").val(sumOfTotal);

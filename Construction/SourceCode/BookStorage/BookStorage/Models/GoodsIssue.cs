@@ -30,7 +30,7 @@
                     var book = db.Books.Find(item.BookID);
                     if (book != null)
                     {
-                        book.Quantity += item.RealQuantity;
+                        book.Quantity -= item.RealQuantity;
                     }
                 }
             }
@@ -114,7 +114,6 @@
 
         public int ID { get; set; }
         public virtual List<GoodsIssueInfo> GoodsIssueInfo { get; set; }
-
 
         [StringLength(500)]
         [Display(Name = "Người nhận")]
