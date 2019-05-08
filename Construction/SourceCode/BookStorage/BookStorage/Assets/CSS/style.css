@@ -610,6 +610,7 @@ header {
                 transition: 0.3s ease-in-out;
                 width: 10%;
                 min-width: 105px;
+                margin-left: 5px;
             }
 
                 #book-content .content-container .content-table .interactive .create-new-button:hover {
