@@ -1,0 +1,34 @@
+﻿@model BookStorage.Models.GoodsIssueInfo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "GoodsIssueInfo", FormMethod.Post))
+{
+    <div class="create-new-title">Chỉnh sửa chi tiết phiếu xuất</div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div id="create-new-form">
+        <div class="create-new-add">
+            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(model => model.GoodsIssueID)
+            <div>
+                <p>@Html.LabelFor(model => model.ReceiptQuantity)</p>
+                @Html.EditorFor(model => model.ReceiptQuantity, new { htmlAttributes = new { placeholder = "Số lượng theo chứng từ" } })
+                @Html.ValidationMessageFor(model => model.ReceiptQuantity, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.RealQuantity)</p>
+                @Html.EditorFor(model => model.RealQuantity, new { htmlAttributes = new { placeholder = "Số lượng thực nhập" } })
+                @Html.ValidationMessageFor(model => model.RealQuantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="create-new-confirm">
+            <button type="submit"><i class="fas fa-plus-circle"></i>Lưu</button>
+            <button onclick="location.href='/GoodsIssue/Detail/@Url.RequestContext.RouteData.Values["id"]'" type="button"><i class="fas fa-ban"></i>Trở về</button>
+        </div>
+    </div>
+}
+

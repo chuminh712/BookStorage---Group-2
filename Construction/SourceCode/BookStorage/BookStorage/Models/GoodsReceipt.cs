@@ -21,6 +21,18 @@
 
         public int Insert(GoodsReceipt entity)
         {
+            if (entity.GoodsReceiptInfo != null)
+            {
+                entity.GoodsReceiptInfo.RemoveAll(x => x.BookID == null);
+                foreach (var item in entity.GoodsReceiptInfo)
+                {
+                    var book = db.Books.Find(item.BookID);
+                    if (book != null)
+                    {
+                        book.Quantity += item.RealQuantity;
+                    }
+                }
+            }
             db.GoodsReceipts.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -64,6 +76,11 @@
             {
                 var goodsReceipt = db.GoodsReceipts.Find(id);
                 var goodsReceiptInfoes = db.GoodsReceiptInfoes.Where(x => x.GoodsReceiptID == id);
+                foreach(var item in goodsReceiptInfoes)
+                {
+                    var book = db.Books.Find(item.BookID);
+                    book.Quantity -= item.RealQuantity;
+                }
                 db.GoodsReceipts.Remove(goodsReceipt);
                 db.GoodsReceiptInfoes.RemoveRange(goodsReceiptInfoes);
                 db.SaveChanges();
@@ -78,6 +95,20 @@
         public GoodsReceipt GetByID(int id)
         {
             return db.GoodsReceipts.Find(id);
+        }
+
+        public List<GoodsReceipt> GetGoodsReceiptList(DateTime fromDate, DateTime toDate)
+        {
+            var goodsReceiptList = db.GoodsReceipts.AsQueryable();
+            if (fromDate != null)
+            {
+                goodsReceiptList = goodsReceiptList.Where(x => x.CreatedDate >= fromDate).AsQueryable();
+            }
+            if (toDate != null)
+            {
+                goodsReceiptList = goodsReceiptList.Where(x => x.CreatedDate <= toDate).AsQueryable();
+            }
+            return goodsReceiptList.ToList();
         }
 
         public int ID { get; set; }
@@ -107,7 +138,8 @@
         [Display(Name = "Mã phiếu nhập")]
         public string Code { get; set; }
 
-        [Display(Name = "Tổng số tiền")]
+        [Display(Name = "Tổng tiền")]
+        [DisplayFormat(DataFormatString = "#.##0")]
         public decimal? TotalPrice { get; set; }
 
         [Display(Name = "Trạng thái")]

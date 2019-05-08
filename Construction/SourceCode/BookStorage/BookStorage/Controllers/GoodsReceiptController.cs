@@ -1,12 +1,16 @@
 ﻿using BookStorage.Models;
 using System.Web.Mvc;
+using Rotativa;
+using System.Linq;
+using System.Collections.Generic;
+using BookStorage.Common;
 
 namespace BookStorage.Controllers
 {
-    public class GoodsReceiptController : Controller
+    public class GoodsReceiptController : BaseController
     {
         // GET: GoodsReceipt
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new GoodsReceipt();
             var model = dao.ListAllPage(searchString, page, pageSize);
@@ -25,17 +29,19 @@ namespace BookStorage.Controllers
         [ValidateInput(false)]
         public ActionResult Create(GoodsReceipt goodsReceipt)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && goodsReceipt.GoodsReceiptInfo.Count > 0)
             {
                 var dao = new GoodsReceipt();
                 int id = dao.Insert(goodsReceipt);
                 if (id > 0)
                 {
+                    SetAlert("Thêm phiếu xuất thành công", "success");
                     return RedirectToAction("Index", "GoodsReceipt");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm phiếu xuất không thành công");
+                    SetAlert("Thêm phiếu xuất không thành công", "danger");
+                    return RedirectToAction("Index", "GoodsReceipt");
                 }
             }
             SetViewBag();
@@ -61,11 +67,13 @@ namespace BookStorage.Controllers
                 var result = dao.Update(goodsReceipt);
                 if (result)
                 {
+                    SetAlert("Cập nhật phiếu xuất thành công", "success");
                     return RedirectToAction("Index", "GoodsReceipt");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật không thành công");
+                    SetAlert("Cập nhật phiếu xuất không thành công", "danger");
+                    return RedirectToAction("Index", "GoodsReceipt");
                 }
             }
             SetViewBag(goodsReceipt.SupplierID);
@@ -77,6 +85,26 @@ namespace BookStorage.Controllers
             var dao = new GoodsReceipt();
             var goodsReceipt = dao.GetByID(id);
             return View(goodsReceipt);
+        }
+
+        public ActionResult Print(int id)
+        {
+            var dao = new GoodsReceipt();
+            var goodsReceipt = dao.GetByID(id);
+            return View(goodsReceipt);
+        }
+
+        public ActionResult PrintPdf(int id)
+        {
+            var dao = new GoodsReceipt();
+            var goodsReceipt = dao.GetByID(id);
+            ViewBag.TotalPriceText = NumberToText.NumberToTextVN((decimal)goodsReceipt.TotalPrice);
+            return new ViewAsPdf()
+            {
+                FormsAuthenticationCookieName = System.Web.Security.FormsAuthentication.FormsCookieName,
+                ViewName = "Print",
+                Model = goodsReceipt
+            };
         }
 
         [HttpDelete]
@@ -102,7 +130,11 @@ namespace BookStorage.Controllers
         public JsonResult GetBookID(string code)
         {
             var dao = new Book();
-            var bookID = dao.GetByCode(code).ID;
+            var bookID = 0;
+            if (dao.GetByCode(code) != null)
+            {
+                bookID = dao.GetByCode(code).ID;
+            }
             return Json(bookID);
         }
     }

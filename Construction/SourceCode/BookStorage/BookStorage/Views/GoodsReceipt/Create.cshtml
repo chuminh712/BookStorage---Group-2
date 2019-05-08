@@ -7,6 +7,7 @@
 
 @section scripts {
     <script src="~/Scripts/Project/GoodsReceipt/goodsReceiptCreate.js"></script>
+    <script src="~/Scripts/Project/datepicker.js"></script>
 }
 
 @using (Html.BeginForm("Create", "GoodsReceipt", FormMethod.Post))
@@ -23,7 +24,7 @@
 
             <div>
                 <p>@Html.LabelFor(model => model.CreatedDate)</p>
-                @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { placeholder = "Ngày tạo" } })
+                @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "datepicker", placeholder = "Ngày tạo" } })
                 @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
             </div>
 
@@ -118,6 +119,6 @@
     </div>
     <div class="create-new-confirm">
         <button type="submit"><i class="fas fa-plus-circle"></i>Tạo mới</button>
-        <button onclick="history.back(-1)" type="button"><i class="fas fa-ban"></i>Trở về</button>
+        <button onclick="location.href='/GoodsReceipt/Index'" type="button"><i class="fas fa-ban"></i>Trở về</button>
     </div>
 }
