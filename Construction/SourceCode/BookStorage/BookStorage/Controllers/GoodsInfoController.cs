@@ -35,5 +35,33 @@ namespace BookStorage.Controllers
             }
             return RedirectToAction("Index", "GoodsIssue");
         }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var dao = new GoodsIssueInfo();
+            var goodsIssueInfo = dao.GetByID(id);
+            return View(goodsIssueInfo);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Edit(GoodsIssueInfo goodsIssueInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new GoodsIssueInfo();
+                var result = dao.Update(goodsIssueInfo);
+                if (result)
+                {
+                    return RedirectToAction("Detail", "GoodsIssue", new { ID = goodsIssueInfo.GoodsIssueID });
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật không thành công");
+                }
+            }
+            return RedirectToAction("Index", "GoodsIssue");
+        }
     }
 }
