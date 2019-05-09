@@ -63,5 +63,11 @@ namespace BookStorage.Controllers
             }
             return RedirectToAction("Index", "GoodsIssue");
         }
+
+        public ActionResult Delete(int id)
+        {
+            new GoodsIssueInfo().Delete(id);
+            return RedirectToAction("Detail", "GoodsIssue");
+        }
     }
 }
