@@ -1,0 +1,101 @@
+﻿@model PagedList.IPagedList<BookStorage.Models.Book>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    Danh sách sách
+    <hr />
+}
+
+<div class="content-container">
+    <div class="content-title">Tra cứu thông tin sách</div>
+    <div class="content-table">
+        @using (Html.BeginForm("Index", "Book", FormMethod.Get))
+        {
+            <div class="interactive">
+                <div class="search-content">
+                    <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="create-new-button" onclick="location.href='/Book/Create'" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    Tạo mới
+                </button>
+
+                <button class="create-new-button" onclick="location.href='/Excel/ImportIndex'" type="button">
+                <i class="fas fa-plus-circle"></i>
+                Import File
+                </button>
+            </div>
+        }
+        <div class="table-container">
+            <table>
+                <!-- Start Title Row -->
+                <tr class="table-title-row">
+                    <th>Tiêu đề</th>
+                    <th>Trang bìa</th>
+                    <th>Thể loại</th>
+                    <th>Tác giả</th>
+                    <th>Mã sách</th>
+                    <th>Đơn vị</th>
+                    <th>Giá tiền</th>
+                    <th>Số lượng</th>
+                    <th>Người đăng</th>
+                    <th>Ngày tạo</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+                <!-- End Title Row -->
+                <!-- Start Content Row -->
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                <tr class="table-content-row" id="row_@item.ID">
+                    <td>@item.Name</td>
+                    <td class="img-c"><img src="@item.Image" /></td>
+                    @if (item.BookCategory != null)
+                    {
+                        <td>@item.BookCategory.Name</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    <td>@item.Author</td>
+                    <td>@item.Code</td>
+                    @if (item.Unit != null)
+                    {
+                        <td>@item.Unit.Name</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    <td>@item.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Publisher</td>
+                    <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                    <td>@item.Status</td>
+                    <td>
+                        @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
+                        @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                           {
+                               Confirm = "Bạn có muốn xóa bản ghi này?",
+                               OnComplete = "$('#row_" + @item.ID + "').remove()",
+                               HttpMethod = "Delete"
+                           }, new { @class = "fas fa-trash-alt" })
+                    </td>
+                </tr>
+                    }
+                }
+                <!-- End Content Row -->
+            </table>
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString }))
+    </div>
+</div>

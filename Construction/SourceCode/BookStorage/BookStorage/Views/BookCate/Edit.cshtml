@@ -1,0 +1,88 @@
+﻿@model BookStorage.Models.Book
+
+@{
+
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script src="~/Assets/JS/plugins/ck-finder.js"></script>
+}
+
+@using (Html.BeginForm("Edit", "Book", FormMethod.Post))
+{
+
+    <div class="create-new-title">Chỉnh sửa thông tin sách</div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div id="create-new-form">
+        <div class="create-new-add">
+            @Html.HiddenFor(model => model.ID)
+            <div>
+                <p>@Html.LabelFor(model => model.Name)</p>
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Tên sách" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.UnitID)</p>
+                @Html.DropDownListFor(model => model.UnitID, null, "Đơn vị")
+                @Html.ValidationMessageFor(model => model.UnitID, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Author)</p>
+                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { placeholder = "Tác giả" } })
+                @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.BookCategoryID)</p>
+                @Html.DropDownListFor(model => model.BookCategoryID, null, "Thể loại sách")
+                @Html.ValidationMessageFor(model => model.BookCategoryID, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Code)</p>
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { placeholder = "Mã sách" } })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Image)</p>
+                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @id = "txtImage" }, id = "txtImage" })
+                <a id="btnSelectImage" href="#">Chọn</a>
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Price)</p>
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { placeholder = "Đơn giá" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Publisher)</p>
+                @Html.EditorFor(model => model.Publisher, new { htmlAttributes = new { placeholder = "Nhà phát hành" } })
+                @Html.ValidationMessageFor(model => model.Publisher, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Quantity)</p>
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { placeholder = "Số lượng" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Status)</p>
+                @Html.CheckBoxFor(model => model.Status)
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="create-new-confirm">
+            <button value="Create" type="submit"><i class="fas fa-plus-circle"></i>Lưu</button>
+            <button onclick="location.href='/Book/Index'" type="button"><i class="fas fa-ban"></i>Trở về</button>
+        </div>
+    </div>
+}
