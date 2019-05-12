@@ -22,7 +22,10 @@
 
         public int Insert(Book entity)
         {
-            entity.CreatedDate = DateTime.Today;
+            if(!entity.CreatedDate.HasValue)
+            {
+                entity.CreatedDate = DateTime.Today;
+            }
             db.Books.Add(entity);
             db.SaveChanges();
             return entity.ID;
