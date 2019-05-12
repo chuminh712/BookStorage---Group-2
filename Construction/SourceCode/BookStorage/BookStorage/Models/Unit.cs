@@ -27,5 +27,9 @@ namespace BookStorage.Models
             return db.Units.ToList();
         }
 
+        public Unit GetByID(int id)
+        {
+            return db.Units.Find(id);
+        }
     }
 }
