@@ -16,16 +16,25 @@
     <div class="content-table">
         @using (Html.BeginForm("Index", "BookCategory", FormMethod.Get))
         {
-            <div class="interactive">
-                <div class="search-content">
-                    <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
-                    <i class="fas fa-search"></i>
-                </div>
-                <button class="create-new-button" onclick="location.href='/Book/Create'" type="button">
-                    <i class="fas fa-plus-circle"></i>
-                    Tạo mới
-                </button>
+        <div class="interactive">
+            <div class="search-content">
+                <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
+                <i class="fas fa-search"></i>
             </div>
+            <button class="create-new-button" onclick="location.href='/BookCategory/Create'" type="button">
+                <i class="fas fa-plus-circle"></i>
+                Tạo mới
+            </button>
+        </div>
+        <button class="create-new-button" onclick="location.href='/BookCategory/ImportIndex'" type="button">
+            <i class="fas fa-plus-circle"></i>
+            Import File
+        </button>
+
+        <button class="create-new-button" onclick="location.href='@Url.Action("Export", "BookCategory")'" type="button">
+            <i class="fas fa-plus-circle"></i>
+            Export File
+        </button>
         }
         <div class="table-container">
             <table>
@@ -40,18 +49,18 @@
                 {
                     foreach (var item in Model)
                     {
-                        <tr class="table-content-row" id="row_@item.ID">
-                            <td>@item.Name</td>
-                            <td>
-                                @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
-                                @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
-                                   {
-                                       Confirm = "Bạn có muốn xóa danh mục này?",
-                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
-                                       HttpMethod = "Delete"
-                                   }, new { @class = "fas fa-trash-alt" })
-                            </td>
-                        </tr>
+                <tr class="table-content-row" id="row_@item.ID">
+                    <td>@item.Name</td>
+                    <td>
+                        @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
+                        @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                           {
+                               Confirm = "Bạn có muốn xóa danh mục này?",
+                               OnComplete = "$('#row_" + @item.ID + "').remove()",
+                               HttpMethod = "Delete"
+                           }, new { @class = "fas fa-trash-alt" })
+                    </td>
+                </tr>
                     }
                 }
                 <!-- End Content Row -->

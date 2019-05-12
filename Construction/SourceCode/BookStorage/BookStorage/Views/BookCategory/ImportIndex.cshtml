@@ -1,0 +1,59 @@
+﻿@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "ImportIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    Import dữ liệu Excel
+    <hr />
+}
+
+<div class="content-container">
+    <div class="content-title">Import dữ liệu Excel</div>
+    <div class="content-table">
+        @using (Html.BeginForm("Import", "BookCategory", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <div class="interactive">
+            <div class="search-content">
+                <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
+                <i class="fas fa-search"></i>
+            </div>
+            <button class="create-new-button" onclick="location.href='/BookCategory/Create'" type="button">
+                <i class="fas fa-plus-circle"></i>
+                Tạo mới
+            </button>
+            <button class="create-new-button" onclick="location.href='/BookCategory/ImportIndex'" type="button">
+                <i class="fas fa-plus-circle"></i>
+                Import File
+            </button>
+            <button class="create-new-button" onclick="location.href='@Url.Action("Export", "BookCategory")'" type="button">
+                <i class="fas fa-plus-circle"></i>
+                Export File
+            </button>
+        </div>
+        }
+        <div class="table-container">
+            <table>
+                <!-- Start Title Row -->
+                <tr class="table-title-row">
+                    <th>Tên</th>
+                </tr>
+                <!-- End Title Row -->
+                <!-- Start Content Row -->
+                @if (ViewBag.ListCategories != null)
+                {
+                    foreach (var item in ViewBag.ListCategories)
+                    {
+                <tr>
+                    <td>@item.Name</td>
+                </tr>
+                    }
+                }
+                <!-- End Content Row -->
+            </table>
+        </div>
+    </div>
+</div>
+
