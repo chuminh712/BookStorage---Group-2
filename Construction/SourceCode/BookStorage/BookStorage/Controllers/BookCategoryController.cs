@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
+using Excel = Microsoft.Office.Interop.Excel;
 using System.Web.Mvc;
 using BookStorage.Models;
+using System.Runtime.InteropServices;
 
 namespace BookStorage.Controllers
 {
@@ -87,6 +90,89 @@ namespace BookStorage.Controllers
         {
             ViewBag.BookCategoryID = new SelectList(new BookCategory().ListAll(), "ID", "Name", categoryID);
             ViewBag.UnitID = new SelectList(new Unit().ListAll(), "ID", "Name", unitID);
+        }
+
+        public ActionResult ImportIndex()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Import(HttpPostedFileBase excelfile)
+        {
+            if (ModelState.IsValid)
+            {
+                if (excelfile == null || excelfile.ContentLength == 0)
+                {
+                    SetAlert("Mời bạn chọn file excel", "danger");
+                    return View("ImportIndex");
+                }
+                else
+                {
+                    if (excelfile.FileName.EndsWith("xls") || excelfile.FileName.EndsWith("xlsx"))
+                    {
+                        string fileName = Path.GetFileName(excelfile.FileName);
+                        string path = Path.Combine(Server.MapPath("~/Data/files/"), fileName);
+                        excelfile.SaveAs(path);
+                        // Read data from excel file
+                        Excel.Application application = new Excel.Application();
+                        Excel.Workbook workbook = application.Workbooks.Open(path);
+                        Excel.Worksheet worksheet = workbook.ActiveSheet;
+                        Excel.Range range = worksheet.UsedRange;
+
+                        List<BookCategory> listCategories = new List<BookCategory>();
+                        for (int row = 2; row <= range.Rows.Count; row++)
+                        {
+                            BookCategory bc = new BookCategory();
+                            bc.Name = ((Excel.Range)range.Cells[row, 1]).Text;
+                            listCategories.Add(bc);
+                            bc.Insert(bc);
+                        }
+                        ViewBag.ListCategories = listCategories;
+                        workbook.Close(path);
+                        SetAlert("Import file thành công", "success");
+                        return View("ImportIndex");
+                    }
+                    else
+                    {
+                        SetAlert("Đây không phải file excel", "danger");
+                        return View("ImportIndex");
+                    }
+                }
+            }
+            return View("ImportIndex");
+        }
+
+        public ActionResult Export()
+        {
+            try
+            {
+                string path = Server.MapPath("~/Data/files/");
+                Excel.Application application = new Excel.Application();
+                Excel.Workbook workbook = application.Workbooks.Add(System.Reflection.Missing.Value);
+                Excel.Worksheet worksheet = workbook.ActiveSheet;
+                BookCategory bookCategory = new BookCategory();
+                worksheet.Cells[1, 1] = "Name";
+                int row = 2;
+                foreach (BookCategory b in bookCategory.ListAll())
+                {
+                    worksheet.Cells[row, 1] = b.Name;
+                    row++;
+                }
+                worksheet.get_Range("A1", "A1").EntireColumn.AutoFit();
+                workbook.SaveAs(path + "CategoryExport.xlsx");
+                workbook.Close();
+                Marshal.ReleaseComObject(workbook);
+                application.Quit();
+                Marshal.FinalReleaseComObject(application);
+                SetAlert("Export file thành công", "success");
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                SetAlert("Export file thất bại", "danger");
+                return RedirectToAction("Index");
+            }
         }
     }
 }
