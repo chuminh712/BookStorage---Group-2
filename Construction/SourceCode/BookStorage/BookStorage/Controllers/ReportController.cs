@@ -24,7 +24,7 @@ namespace BookStorage.Controllers
         }
 
         [HttpPost]
-        public ActionResult ProfitReport(DateTime fromDate, DateTime toDate)
+        public ActionResult ProfitReport(DateTime? fromDate, DateTime? toDate)
         {
             var dao = new ProfitModel();
             var model = dao.GetProfitInfo(fromDate, toDate);

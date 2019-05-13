@@ -30,7 +30,7 @@
                     if (book != null)
                     {
                         book.Quantity += item.RealQuantity;
-                    }
+                    }   
                 }
             }
             db.GoodsReceipts.Add(entity);
@@ -97,7 +97,7 @@
             return db.GoodsReceipts.Find(id);
         }
 
-        public List<GoodsReceipt> GetGoodsReceiptList(DateTime fromDate, DateTime toDate)
+        public List<GoodsReceipt> GetGoodsReceiptList(DateTime? fromDate, DateTime? toDate)
         {
             var goodsReceiptList = db.GoodsReceipts.AsQueryable();
             if (fromDate != null)
