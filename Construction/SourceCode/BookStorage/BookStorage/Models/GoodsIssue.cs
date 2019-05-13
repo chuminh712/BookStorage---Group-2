@@ -2,7 +2,6 @@
 {
     using System;
     using PagedList;
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -53,6 +52,7 @@
                 goodsIssue.Status = entity.Status;
                 goodsIssue.ReciverName = entity.ReciverName;
                 goodsIssue.CustomerID = entity.CustomerID;
+                db.SaveChanges();
                 return true;
             }
             catch (Exception)
@@ -80,7 +80,7 @@
                 foreach (var item in goodsIssueInfoes)
                 {
                     var book = db.Books.Find(item.BookID);
-                    book.Quantity -= item.RealQuantity;
+                    book.Quantity += item.RealQuantity;
                 }
                 db.GoodsIssues.Remove(goodsIssue);
                 db.GoodsIssueInfoes.RemoveRange(goodsIssueInfoes);
@@ -98,7 +98,7 @@
             return db.GoodsIssues.Find(id);
         }
 
-        public List<GoodsIssue> GetGoodsIssueList(DateTime fromDate, DateTime toDate)
+        public List<GoodsIssue> GetGoodsIssueList(DateTime? fromDate, DateTime? toDate)
         {
             var goodsIssueList = db.GoodsIssues.AsQueryable();
             if (fromDate != null)

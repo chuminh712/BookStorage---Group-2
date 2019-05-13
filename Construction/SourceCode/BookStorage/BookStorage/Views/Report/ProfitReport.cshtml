@@ -52,8 +52,8 @@
                                             {
                                                 <td></td>
                                             }
-                                                <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
-                                                <td>@String.Format("{0:#,##0}", item.TotalPrice)</td>
+                                            <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                                            <td>@String.Format("{0:#,##0}", item.TotalPrice)</td>
                                         </tr>
                                     }
                                 }
@@ -62,7 +62,10 @@
                         </div>
                         <div class="money">
                             <p>Tổng tiền: </p>
-                            <p>@Html.DisplayFor(model => model.GoodsReceiptTotal)</p>
+                            @if (Model != null)
+                            {
+                                <p>@String.Format("{0:#,##0}", Model.GoodsReceiptTotal)</p>
+                            }
                         </div>
                     </div>
                     <div class="export-info">
@@ -82,19 +85,19 @@
                                 {
                                     foreach (var item in Model.GoodsIssue)
                                     {
-                                <tr class="table-content-row">
-                                    <td>@item.Code</td>
-                                    @if (item.Customer != null)
-                                    {
-                                        <td>@item.Customer.Name</td>
-                                    }
-                                    else
-                                    {
-                                        <td></td>
-                                    }
-                                    <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
-                                    <td>@String.Format("{0:#,##0}", item.TotalPrice)</td>
-                                </tr>
+                                        <tr class="table-content-row">
+                                            <td>@item.Code</td>
+                                            @if (item.Customer != null)
+                                            {
+                                                <td>@item.Customer.Name</td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
+                                            <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                                            <td>@String.Format("{0:#,##0}", item.TotalPrice)</td>
+                                        </tr>
                                     }
                                 }
                                 <!-- End Content Row -->
@@ -102,13 +105,19 @@
                         </div>
                         <div class="money">
                             <p>Tổng tiền: </p>
-                            <p>@Html.DisplayFor(model => model.GoodsIssueTotal)</p>
+                            @if (Model != null)
+                            {
+                                <p>@String.Format("{0:#,##0}", Model.GoodsIssueTotal)</p>
+                            }
                         </div>
                     </div>
                 </div>
                 <div class="total-revenue">
                     <p>Doanh thu: </p>
-                    <p>@Html.DisplayFor(model => model.TotalProfit)</p>
+                    @if (Model != null)
+                    {
+                        <p>@String.Format("{0:#,##0}", Model.TotalProfit)</p>
+                    }
                 </div>
             </div>
         </div>

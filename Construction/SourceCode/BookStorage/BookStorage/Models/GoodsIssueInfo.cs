@@ -45,13 +45,13 @@
                 if (GoodsIssueInfo.RealQuantity > entity.RealQuantity)
                 {
                     compareQuantity = GoodsIssueInfo.RealQuantity - entity.RealQuantity;
-                    GoodsIssueInfo.Book.Quantity -= compareQuantity;
-                    goodsIssue.TotalPrice -= compareQuantity * GoodsIssueInfo.Book.Price;
+                    GoodsIssueInfo.Book.Quantity += compareQuantity;
+                    goodsIssue.TotalPrice = compareQuantity * GoodsIssueInfo.Book.Price;
                 }
                 else if (GoodsIssueInfo.RealQuantity < entity.RealQuantity)
                 {
                     compareQuantity = entity.RealQuantity - GoodsIssueInfo.RealQuantity;
-                    GoodsIssueInfo.Book.Quantity += compareQuantity;
+                    GoodsIssueInfo.Book.Quantity -= compareQuantity;
                     goodsIssue.TotalPrice += compareQuantity * GoodsIssueInfo.Book.Price;
                 }
                 GoodsIssueInfo.RealQuantity = entity.RealQuantity;
