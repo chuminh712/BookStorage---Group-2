@@ -37,7 +37,7 @@
 #home-login {
     display: flex;
     align-items: center;
-    background: url('~/Assets/Images/bg-form.jpg');
+    background: url('../Images/bg-form.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -804,7 +804,7 @@ td a {
     }
 
 /* Homepage */
-#homepage-container {
+#homepage-container {../
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
@@ -813,35 +813,35 @@ td a {
 }
 
     #homepage-container .homepage-menu:nth-child(1) {
-        background: url('~/Assets/Images/homepageBackground/supplier.jpg');
+        background: url('../Images/homepageBackground/supplier.jpg');
     }
 
     #homepage-container .homepage-menu:nth-child(2) {
-        background: url('~/Assets/Images/homepageBackground/distributor.jpg');
+        background: url('../Images/homepageBackground/distributor.jpg');
     }
 
     #homepage-container .homepage-menu:nth-child(3) {
-        background: url('~/Assets/Images/homepageBackground/importForm.jpg');
+        background: url('../Images/homepageBackground/importForm.jpg');
     }
 
     #homepage-container .homepage-menu:nth-child(4) {
-        background: url('~/Assets/Images/homepageBackground/exportForm.jpg');
+        background: url('../Images/homepageBackground/exportForm.jpg');
     }
 
     #homepage-container .homepage-menu:nth-child(5) {
-        background: url('~/Assets/Images/homepageBackground/book.jpg');
+        background: url('../Images/homepageBackground/book.jpg');
     }
 
     #homepage-container .homepage-menu:nth-child(6) {
-        background: url('~/Assets/Images/homepageBackground/bookCategory.jpg');
+        background: url('../Images/homepageBackground/bookCategory.jpg');
     }
 
     #homepage-container .homepage-menu:nth-child(7) {
-        background: url('~/Assets/Images/homepageBackground/revenue.jpg');
+        background: url('../Images/homepageBackground/revenue.jpg');
     }
 
     #homepage-container .homepage-menu:nth-child(8) {
-        background: url('~/Assets/Images/homepageBackground/inventory.jpg');
+        background: url('../Images/homepageBackground/inventory.jpg');
     }
 
     #homepage-container .homepage-menu {
@@ -1155,12 +1155,12 @@ table, thead, th {
 /* Fonts */
 @font-face {
     font-family: Roboto-Regular;
-    src: url('../Fonts/Roboto-Regular.ttf');
+    src: url('..//Fonts/Roboto-Regular.ttf');
 }
 
 @font-face {
     font-family: Overpass-Regular;
-    src: url('../Fonts/overpass-regular.otf');
+    src: url('..//Fonts/overpass-regular.otf');
 }
 
 .f-roboto {
