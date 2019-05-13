@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace BookStorage.Controllers
 {
-    public class SupplierController : Controller
+    public class SupplierController : BaseController
     {
         // GET: Supplier
         public ActionResult Index(string searchString, int page = 1, int pageSize = 2)

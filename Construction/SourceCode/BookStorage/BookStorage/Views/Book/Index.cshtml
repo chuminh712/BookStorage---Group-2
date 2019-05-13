@@ -23,7 +23,17 @@
                 </div>
                 <button class="create-new-button" onclick="location.href='/Book/Create'" type="button">
                     <i class="fas fa-plus-circle"></i>
-                    Tại mới
+                    Tạo mới
+                </button>
+
+                <button class="create-new-button" onclick="location.href='/Book/ImportIndex'" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    Import File
+                </button>
+
+                <button class="create-new-button" onclick="location.href='@Url.Action("Export", "Book")'" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    Export File
                 </button>
             </div>
         }
@@ -50,42 +60,42 @@
                 {
                     foreach (var item in Model)
                     {
-                <tr class="table-content-row" id="row_@item.ID">
-                    <td>@item.Name</td>
-                    <td>@item.Image</td>
-                    @if (item.BookCategory != null)
-                    {
-                        <td>@item.BookCategory.Name</td>
-                    }
-                    else
-                    {
-                        <td></td>
-                    }
-                    <td>@item.Author</td>
-                    <td>@item.Code</td>
-                    @if (item.Unit != null)
-                    {
-                        <td>@item.Unit.Name</td>
-                    }
-                    else
-                    {
-                        <td></td>
-                    }
-                    <td>@item.Price</td>
-                    <td>@item.Quantity</td>
-                    <td>@item.Publisher</td>
-                    <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
-                    <td>@item.Status</td>
-                    <td>
-                        @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
-                        @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
-                           {
-                               Confirm = "Bạn có muốn xóa bản ghi này?",
-                               OnComplete = "$('#row_" + @item.ID + "').remove()",
-                               HttpMethod = "Delete"
-                           }, new { @class = "fas fa-trash-alt" })
-                    </td>
-                </tr>
+                        <tr class="table-content-row" id="row_@item.ID">
+                            <td>@item.Name</td>
+                            <td class="img-c"><img src="@item.Image" /></td>
+                            @if (item.BookCategory != null)
+                            {
+                                <td>@item.BookCategory.Name</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                            <td>@item.Author</td>
+                            <td>@item.Code</td>
+                            @if (item.Unit != null)
+                            {
+                                <td>@item.Unit.Name</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                            <td>@item.Price</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Publisher</td>
+                            <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                            <td>@item.Status</td>
+                            <td>
+                                @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
+                                @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                                   {
+                                       Confirm = "Bạn có muốn xóa bản ghi này?",
+                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                       HttpMethod = "Delete"
+                                   }, new { @class = "fas fa-trash-alt" })
+                            </td>
+                        </tr>
                     }
                 }
                 <!-- End Content Row -->

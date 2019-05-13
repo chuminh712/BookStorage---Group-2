@@ -1,0 +1,88 @@
+﻿@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "ImportIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    Import dữ liệu Excel
+    <hr />
+}
+
+<div class="content-container">
+    <div class="content-title">Import dữ liệu Excel</div>
+    <div class="content-table">
+        @using (Html.BeginForm("Import", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="interactive">
+                <div class="search-content">
+                    <input type="file" name="excelFile">
+                </div>
+                <button class="create-new-button" type="submit">
+                    <i class="fas fa-plus-circle"></i>
+                    Import
+                </button>
+                <button class="create-new-button" onclick="location.href='/Book/Index'" type="button">
+                    <i class="fas fa-ban"></i>
+                    Trở về
+                </button>
+            </div>
+        }
+        <div class="table-container">
+            <table>
+                <!-- Start Title Row -->
+                <tr class="table-title-row">
+                    <th>Tiêu đề</th>
+                    <th>Trang bìa</th>
+                    <th>Thể loại</th>
+                    <th>Tác giả</th>
+                    <th>Mã sách</th>
+                    <th>Đơn vị</th>
+                    <th>Giá tiền</th>
+                    <th>Số lượng</th>
+                    <th>Người đăng</th>
+                    <th>Ngày tạo</th>
+                    <th>Trạng thái</th>
+                </tr>
+                <!-- End Title Row -->
+                <!-- Start Content Row -->
+                @if (ViewBag.ListBooks != null)
+                {
+                    foreach (var item in ViewBag.ListBooks)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td class="img-c"><img src="@item.Image" /></td>
+                            @if (item.BookCategory != null)
+                            {
+                                <td>@item.BookCategory.Name</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                            <td>@item.Author</td>
+                            <td>@item.Code</td>
+                            @if (item.Unit != null)
+                            {
+                                <td>@item.Unit.Name</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                            <td>@item.Price</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Publisher</td>
+                            <td>@String.Format("{0:dd/MM/yyyy}", item.CreatedDate)</td>
+                            <td>@item.Status</td>
+                        </tr>
+                    }
+                }
+                <!-- End Content Row -->
+            </table>
+        </div>
+    </div>
+</div>
+

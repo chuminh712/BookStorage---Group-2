@@ -19,59 +19,66 @@
             <div>
                 <p>
                     @Html.LabelFor(model => model.ReciverName)
-                @Html.EditorFor(model => model.ReciverName, new { htmlAttributes = new { placeholder = "Tên Người nhận" } })
-                @Html.ValidationMessageFor(model => model.ReciverName, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.ReciverName, new { htmlAttributes = new { placeholder = "Tên Người nhận" } })
+                    @Html.ValidationMessageFor(model => model.ReciverName, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>
+                    @Html.LabelFor(model => model.CreatedDate)
+                    @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "datepicker", placeholder = "Ngày tạo" } })
+                    @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.CustomerID)</p>
+                @Html.DropDownListFor(model => model.CustomerID, null, "Lựa chọn")
+                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Debit)</p>
+                @Html.EditorFor(model => model.Debit, new { htmlAttributes = new { placeholder = "Nợ" } })
+                @Html.ValidationMessageFor(model => model.Debit, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Credit)</p>
+                @Html.EditorFor(model => model.Credit, new { htmlAttributes = new { placeholder = "Có" } })
+                @Html.ValidationMessageFor(model => model.Credit, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Code)</p>
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { placeholder = "Mã phiếu nhập" } })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.OutputReason)</p>
+                @Html.EditorFor(model => model.OutputReason, new { htmlAttributes = new { placeholder = "Lí do xuất" } })
+                @Html.ValidationMessageFor(model => model.OutputReason, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.TotalPrice)</p>
+                @Html.EditorFor(model => model.TotalPrice, new { htmlAttributes = new { id = "receiptTotalPrice", placeholder = "Tổng số tiền" } })
+                @Html.ValidationMessageFor(model => model.TotalPrice, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <p>@Html.LabelFor(model => model.Status)</p>
+                @Html.CheckBoxFor(model => model.Status)
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
         </div>
-
-        <div>
-            <p>
-                @Html.LabelFor(model => model.CreatedDate)
-            @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "datepicker", placeholder = "Ngày tạo" } })
-            @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
-    </div>
-
-    <div>
-        <p>@Html.LabelFor(model => model.CustomerID)</p>
-        @Html.DropDownListFor(model => model.CustomerID, null, "Lựa chọn")
-        @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
-    </div>
-
-    <div>
-        <p>@Html.LabelFor(model => model.Debit)</p>
-        @Html.EditorFor(model => model.Debit, new { htmlAttributes = new { placeholder = "Nợ" } })
-        @Html.ValidationMessageFor(model => model.Debit, "", new { @class = "text-danger" })
-    </div>
-
-    <div>
-        <p>@Html.LabelFor(model => model.Credit)</p>
-        @Html.EditorFor(model => model.Credit, new { htmlAttributes = new { placeholder = "Có" } })
-        @Html.ValidationMessageFor(model => model.Credit, "", new { @class = "text-danger" })
-    </div>
-
-    <div>
-        <p>@Html.LabelFor(model => model.Code)</p>
-        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { placeholder = "Mã phiếu nhập" } })
-        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
-    </div>
-
-    <div>
-        <p>@Html.LabelFor(model => model.OutputReason)</p>
-        @Html.EditorFor(model => model.OutputReason, new { htmlAttributes = new { id = "receiptTotalPrice", placeholder = "Tổng số tiền" } })
-        @Html.ValidationMessageFor(model => model.OutputReason, "", new { @class = "text-danger" })
-    </div>
-
-    <div>
-        <p>@Html.LabelFor(model => model.Status)</p>
-        @Html.CheckBoxFor(model => model.Status)
-        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-    </div>
-</div>
 <div id="book-info">
     <div class="create-new-add">
+        @Html.Hidden("bookID")
         <div>
-            <p>@Html.Label("bookID", "Mã sách")</p>
-            @Html.Editor("bookID", new { htmlAttributes = new { placeholder = "Mã sách" } })
-            @Html.ValidationMessage("bookID", "", new { @class = "text-danger" })
+            <p>@Html.Label("bookCode", "Mã sách")</p>
+            @Html.Editor("bookCode", new { htmlAttributes = new { placeholder = "Mã sách" } })
+            @Html.ValidationMessage("bookCode", "", new { @class = "text-danger" })
         </div>
 
         <div>
@@ -119,6 +126,6 @@
 </div>
 <div class="create-new-confirm">
     <button value="Create" type="submit"><i class="fas fa-plus-circle"></i>Tạo mới</button>
-    <button onclick="history.back(-1)" type="button"><i class="fas fa-ban"></i>Trở về</button>
+    <button onclick="location.href='/GoodsIssue/Index'" type="button"><i class="fas fa-ban"></i>Trở về</button>
 </div>
 }

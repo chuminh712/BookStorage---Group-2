@@ -1,4 +1,4 @@
-namespace BookStorage.Models
+﻿namespace BookStorage.Models
 {
     using System;
     using System.Collections.Generic;
@@ -26,8 +26,8 @@ namespace BookStorage.Models
             var goodsIssue = db.GoodsIssues.Find(entity.GoodsIssueID);
             entity.Book = db.Books.Where(x => x.Code == entity.Book.Code).FirstOrDefault();
             entity.Book.Quantity -= entity.RealQuantity;
-            entity.TotalPrice = entity.Book.Price * entity.RealQuantity;
-            goodsIssue.TotalPrice += entity.TotalPrice;
+            entity.BookTotalPrice = entity.Book.Price * entity.RealQuantity;
+            goodsIssue.TotalPrice += entity.BookTotalPrice;
             db.GoodsIssueInfoes.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -55,7 +55,7 @@ namespace BookStorage.Models
                     goodsIssue.TotalPrice += compareQuantity * GoodsIssueInfo.Book.Price;
                 }
                 GoodsIssueInfo.RealQuantity = entity.RealQuantity;
-                GoodsIssueInfo.TotalPrice = entity.RealQuantity * GoodsIssueInfo.Book.Price;
+                GoodsIssueInfo.BookTotalPrice = entity.RealQuantity * GoodsIssueInfo.Book.Price;
                 db.SaveChanges();
                 return true;
             }
@@ -72,7 +72,7 @@ namespace BookStorage.Models
                 var GoodsIssueInfo = db.GoodsIssueInfoes.Find(id);
                 var goodsIssue = db.GoodsIssues.Find(GoodsIssueInfo.GoodsIssueID);
                 GoodsIssueInfo.Book.Quantity -= GoodsIssueInfo.RealQuantity;
-                goodsIssue.TotalPrice -= GoodsIssueInfo.TotalPrice;
+                goodsIssue.TotalPrice -= GoodsIssueInfo.BookTotalPrice;
                 db.GoodsIssueInfoes.Remove(GoodsIssueInfo);
                 db.SaveChanges();
                 return true;
@@ -98,12 +98,14 @@ namespace BookStorage.Models
         public int? GoodsIssueID { get; set; }
         public virtual GoodsIssue GoodsIssue { get; set; }
 
+        [Display(Name = "Số lượng theo chứng từ")]
         public int? ReceiptQuantity { get; set; }
 
+        [Display(Name = "Số lượng thực nhập")]
         public int? RealQuantity { get; set; }
 
-
         [DisplayFormat(DataFormatString = "#.##0")]
-        public decimal? TotalPrice { get; set; }
+        [Display(Name = "Tổng tiền")]
+        public decimal? BookTotalPrice { get; set; }
     }
 }

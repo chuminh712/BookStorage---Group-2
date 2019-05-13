@@ -1,4 +1,4 @@
-namespace BookStorage.Models
+﻿namespace BookStorage.Models
 {
     using System;
     using System.Collections.Generic;
@@ -22,7 +22,10 @@ namespace BookStorage.Models
 
         public int Insert(Book entity)
         {
-            entity.CreatedDate = DateTime.Today;
+            if(!entity.CreatedDate.HasValue)
+            {
+                entity.CreatedDate = DateTime.Today;
+            }
             db.Books.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -95,33 +98,43 @@ namespace BookStorage.Models
         public int ID { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Tên sách")]
         public string Name { get; set; }
 
+        [Display(Name = "Đơn vị")]
         public int? UnitID { get; set; }
         public virtual Unit Unit { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Tác giả")]
         public string Author { get; set; }
 
+        [Display(Name = "Danh mục sách")]
         public int? BookCategoryID { get; set; }
         public virtual BookCategory BookCategory{ get; set; }
 
         [StringLength(200)]
+        [Display(Name = "Mã sách")]
         public string Code { get; set; }
 
-        [StringLength(500)]
-        public string Image { get; set; }
-
+        [Display(Name = "Giá tiền")]
         public decimal? Price { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Hình ảnh")]
+        public string Image { get; set; }
+
+        [StringLength(500)]
+        [Display(Name = "Nhà xuất bản")]
         public string Publisher { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? CreatedDate { get; set; }
 
+        [Display(Name = "Số lượng")]
         public int? Quantity { get; set; }
 
+        [Display(Name = "Trạng thái")]
         public bool Status { get; set; }
 
     }

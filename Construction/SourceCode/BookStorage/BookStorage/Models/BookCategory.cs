@@ -1,5 +1,6 @@
-namespace BookStorage.Models
+﻿namespace BookStorage.Models
 {
+    using PagedList;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -25,14 +26,11 @@ namespace BookStorage.Models
         public int ID { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Tên danh mục")]
         public string Name { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? CreatedDate { get; set; }
 
         public int Insert(BookCategory entity)
         {
-            entity.CreatedDate = DateTime.Today;
             db.BookCategories.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -71,6 +69,16 @@ namespace BookStorage.Models
             {
                 return false;
             }
+        }
+
+        public IEnumerable<BookCategory> ListAllPage(string searchString, int page, int pageSize)
+        {
+            IQueryable<BookCategory> model = db.BookCategories;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Name.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.Name).ToPagedList(page, pageSize);
         }
     }
 }

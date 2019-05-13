@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace BookStorage.Controllers
 {
-    public class GoodsReceiptInfoController : Controller
+    public class GoodsReceiptInfoController : BaseController
     {
         [HttpGet]
         public ActionResult Create(int id)
