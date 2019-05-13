@@ -27,7 +27,7 @@ namespace BookStorage.ViewModels
         [DisplayFormat(DataFormatString = "#.##0")]
         public decimal? TotalProfit { get; set; }
 
-        public ProfitModel GetProfitInfo(DateTime fromDate, DateTime toDate)
+        public ProfitModel GetProfitInfo(DateTime? fromDate, DateTime? toDate)
         {
             var goodsReceiptDao = new GoodsReceipt();
             var goodsIssueDao = new GoodsIssue();
