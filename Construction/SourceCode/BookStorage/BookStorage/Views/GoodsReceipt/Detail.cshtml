@@ -28,7 +28,7 @@
                 <i class="fas fa-print"></i>
                 In Phiếu
             </button>
-            <button class="create-new-button" onclick="history.back(-1)" type="button">
+            <button class="create-new-button" onclick="location.href='/GoodsReceipt/Index'" type="button">
                 <i class="fas fa-ban"></i>
                 Trở về
             </button>
@@ -39,6 +39,7 @@
                 <!-- Start Title Row -->
                 <tr class="table-title-row">
                     <th>Tên sách</th>
+                    <th>Hình ảnh</th>
                     <th>Mã sách</th>
                     <th>Đơn vị tính</th>
                     <th>Số lượng theo chứng từ</th>
@@ -53,23 +54,24 @@
                 {
                     foreach (var item in Model.GoodsReceiptInfo)
                     {
-                        <tr class="table-content-row" id="row_@item.ID">
-                            <td>@item.Book.Name</td>
-                            <td>@item.Book.Code</td>
-                            <td>@item.Book.Unit.Name</td>
-                            <td>@item.ReceiptQuantity</td>
-                            <td>@item.RealQuantity</td>
-                            <td>@String.Format("{0:#,##0}", item.Book.Price)</td>
-                            <td>@String.Format("{0:#,##0}", item.BookTotalPrice)</td>
-                            <td>
-                                @Html.ActionLink(" Sửa", "Edit", "GoodsReceiptInfo", new { id = item.ID }, new { @class = "far fa-edit" })
-                                @Ajax.ActionLink(" Xóa", "Delete", "GoodsReceiptInfo", new { id = item.ID }, new AjaxOptions
-                                   {
-                                       Confirm = "Bạn có muốn xóa bản ghi này?",
-                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
-                                       HttpMethod = "Delete"
-                                   }, new { @class = "fas fa-trash-alt" })
-                        </tr>
+                <tr class="table-content-row" id="row_@item.ID">
+                    <td>@item.Book.Name</td>
+                    <td class="img-c"><img src="@item.Book.Image" /></td>
+                    <td>@item.Book.Code</td>
+                    <td>@item.Book.Unit.Name</td>
+                    <td>@item.ReceiptQuantity</td>
+                    <td>@item.RealQuantity</td>
+                    <td>@String.Format("{0:#,##0}", item.Book.Price)</td>
+                    <td>@String.Format("{0:#,##0}", item.BookTotalPrice)</td>
+                    <td>
+                        @Html.ActionLink(" Sửa", "Edit", "GoodsReceiptInfo", new { id = item.ID }, new { @class = "far fa-edit" })
+                        @Ajax.ActionLink(" Xóa", "Delete", "GoodsReceiptInfo", new { id = item.ID }, new AjaxOptions
+                           {
+                               Confirm = "Bạn có muốn xóa bản ghi này?",
+                               OnComplete = "$('#row_" + @item.ID + "').remove()",
+                               HttpMethod = "Delete"
+                           }, new { @class = "fas fa-trash-alt" })
+                </tr>
                     }
                 }
                 <!-- End Content Row -->

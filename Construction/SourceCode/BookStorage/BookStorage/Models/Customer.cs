@@ -1,4 +1,4 @@
-namespace BookStorage.Models
+﻿namespace BookStorage.Models
 {
     using PagedList;
     using System;
@@ -83,20 +83,25 @@ namespace BookStorage.Models
         public int ID { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Nhà phân phối")]
         public string Name { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Số điện thoại")]
         public string Phone { get; set; }
 
         [StringLength(500)]
         public string Email { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Ngày hợp tác")]
         public DateTime? ContractedDate { get; set; }
 
+        [Display(Name = "Trạng thái")]
         public bool Status { get; set; }
     }
 }

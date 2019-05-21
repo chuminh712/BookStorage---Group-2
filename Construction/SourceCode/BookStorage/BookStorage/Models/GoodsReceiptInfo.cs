@@ -1,4 +1,4 @@
-namespace BookStorage.Models
+﻿namespace BookStorage.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace BookStorage.Models
         {
             var goodsReceipt = db.GoodsReceipts.Find(entity.GoodsReceiptID);
             entity.Book = db.Books.Where(x => x.Code == entity.Book.Code).FirstOrDefault();
-            entity.Book.Quantity -= entity.RealQuantity;
+            entity.Book.Quantity += entity.RealQuantity;
             entity.BookTotalPrice = entity.Book.Price * entity.RealQuantity;
             goodsReceipt.TotalPrice += entity.BookTotalPrice;
             db.GoodsReceiptInfoes.Add(entity);
@@ -92,11 +92,14 @@ namespace BookStorage.Models
         public int? GoodsReceiptID { get; set; }
         public virtual GoodsReceipt GoodsReceipt { get; set; }
 
+        [Display(Name = "Số lượng theo chứng từ")]
         public int? ReceiptQuantity { get; set; }
 
+        [Display(Name = "Số lượng theo thực nhập")]
         public int? RealQuantity { get; set; }
 
         [DisplayFormat(DataFormatString = "#.##0")]
+        [Display(Name = "Tổng tiền")]
         public decimal? BookTotalPrice { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace BookStorage.Controllers
     public class GoodsReceiptController : BaseController
     {
         // GET: GoodsReceipt
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 5)
         {
             var dao = new GoodsReceipt();
             var model = dao.ListAllPage(searchString, page, pageSize);
@@ -29,7 +29,7 @@ namespace BookStorage.Controllers
         [ValidateInput(false)]
         public ActionResult Create(GoodsReceipt goodsReceipt)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && goodsReceipt.GoodsReceiptInfo.Count > 0)
             {
                 var dao = new GoodsReceipt();
                 int id = dao.Insert(goodsReceipt);
@@ -40,7 +40,8 @@ namespace BookStorage.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm phiếu xuất không thành công");
+                    SetAlert("Thêm phiếu xuất không thành công", "danger");
+                    return RedirectToAction("Index", "GoodsReceipt");
                 }
             }
             SetViewBag();
@@ -71,7 +72,8 @@ namespace BookStorage.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật phiếu xuất không thành công");
+                    SetAlert("Cập nhật phiếu xuất không thành công", "danger");
+                    return RedirectToAction("Index", "GoodsReceipt");
                 }
             }
             SetViewBag(goodsReceipt.SupplierID);
@@ -128,7 +130,11 @@ namespace BookStorage.Controllers
         public JsonResult GetBookID(string code)
         {
             var dao = new Book();
-            var bookID = dao.GetByCode(code).ID;
+            var bookID = 0;
+            if (dao.GetByCode(code) != null)
+            {
+                bookID = dao.GetByCode(code).ID;
+            }
             return Json(bookID);
         }
     }

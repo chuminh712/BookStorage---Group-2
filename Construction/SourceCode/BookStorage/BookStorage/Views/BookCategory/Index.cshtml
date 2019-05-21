@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<BookStorage.Models.BookCategory>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    Danh mục sách
+    <hr />
+}
+
+<div class="content-container">
+    <div class="content-title">Tra cứu danh mục sách</div>
+    <div class="content-table">
+        @using (Html.BeginForm("Index", "BookCategory", FormMethod.Get))
+        {
+            <div class="interactive">
+                <div class="search-content">
+                    <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="create-new-button" onclick="location.href='/BookCategory/Create'" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    Tạo mới
+                </button>
+                <button class="create-new-button" onclick="location.href='/BookCategory/ImportIndex'" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    Import File
+                </button>
+                <button class="create-new-button" onclick="location.href='@Url.Action("Export", "BookCategory")'" type="button">
+                    <i class="fas fa-plus-circle"></i>
+                    Export File
+                </button>
+            </div>
+        }
+        <div class="table-container">
+            <table>
+                <!-- Start Title Row -->
+                <tr class="table-title-row">
+                    <th>Tên</th>
+                    <th>Thao tác</th>
+                </tr>
+                <!-- End Title Row -->
+                <!-- Start Content Row -->
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr class="table-content-row" id="row_@item.ID">
+                            <td>@item.Name</td>
+                            <td>
+                                @Html.ActionLink(" Sửa", "Edit", new { id = item.ID }, new { @class = "far fa-edit" })
+                                @Ajax.ActionLink(" Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                                   {
+                                       Confirm = "Bạn có muốn xóa danh mục này?",
+                                       OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                       HttpMethod = "Delete"
+                                   }, new { @class = "fas fa-trash-alt" })
+                            </td>
+                        </tr>
+                    }
+                }
+                <!-- End Content Row -->
+            </table>
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString }))
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@model BookStorage.Models.GoodsIssue
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section title{
+    Chi tiết phiếu xuất
+    <hr />
+}
+
+<div class="content-container">
+    <div class="content-title">Tra cứu thông tin chi tiết phiếu xuất</div>
+    <div class="content-table">
+        @using (Html.BeginForm("Index", "GoodsReceipt", FormMethod.Get))
+        {
+        <div class="interactive">
+            <div class="search-content">
+                <input type="text" value="@ViewBag.SearchString" placeholder="Tìm kiếm" name="searchString">
+                <i class="fas fa-search"></i>
+            </div>
+            <button class="create-new-button" onclick="location.href='/GoodsIssueInfo/Create/@Url.RequestContext.RouteData.Values["id"]'" type="button">
+                <i class="fas fa-plus-circle"></i>
+                Thêm mới
+            </button>
+            <button class="create-new-button" onclick="location.href='/GoodsIssue/PrintPdf/@Url.RequestContext.RouteData.Values["id"]'" type="button">
+                <i class="fas fa-print"></i>
+                In Phiếu
+            </button>
+            <button class="create-new-button" onclick="location.href='/GoodsIssue/Index'" type="button">
+                <i class="fas fa-ban"></i>
+                Trở về
+            </button>
+        </div>
+        }
+        <div class="table-container">
+            <table>
+                <!-- Start Title Row -->
+                <tr class="table-title-row">
+                    <th>Tên sách</th>
+                    <th>Hình ảnh</th>
+                    <th>Mã sách</th>
+                    <th>Đơn vị tính</th>
+                    <th>Số lượng theo chứng từ</th>
+                    <th>Số lượng thực nhập</th>
+                    <th>Đơn giá</th>
+                    <th>Tổng số tiền</th>
+                    <th>Thao tác</th>
+                </tr>
+                <!-- End Title Row -->
+                <!-- Start Content Row -->
+                @if (Model != null && Model.GoodsIssueInfo != null)
+                {
+                    foreach (var item in Model.GoodsIssueInfo)
+                    {
+                <tr class="table-content-row" id="row_@item.ID">
+                    <td>@item.Book.Name</td>
+                    <td class="img-c"><img src="@item.Book.Image" /></td>
+                    <td>@item.Book.Code</td>
+                    <td>@item.Book.Unit.Name</td>
+                    <td>@item.ReceiptQuantity</td>
+                    <td>@item.RealQuantity</td>
+                    <td>@String.Format("{0:#,##0}", item.Book.Price)</td>
+                    <td>@String.Format("{0:#,##0}", item.BookTotalPrice)</td>
+                    <td>
+                        @Html.ActionLink(" Sửa", "Edit", "GoodsIssueInfo", new { id = item.ID }, new { @class = "far fa-edit" })
+                        @Ajax.ActionLink(" Xóa", "Delete", "GoodsIssueInfo", new { id = item.ID }, new AjaxOptions
+                           {
+                               Confirm = "Bạn có muốn xóa bản ghi này?",
+                               OnComplete = "$('#row_" + @item.ID + "').remove()",
+                               HttpMethod = "Delete"
+                           }, new { @class = "fas fa-trash-alt" })
+                </tr>
+                    }
+                }
+                <!-- End Content Row -->
+            </table>
+        </div>
+    </div>
+</div>
+
